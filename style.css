@@ -538,3 +538,9 @@ a {
   .email-link { font-size: 1.25rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
+/* --- 全コンテンツ強制表示コード --- */
+.fade-in {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
