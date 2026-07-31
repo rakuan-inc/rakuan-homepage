@@ -1,514 +1,231 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社楽安 | 確かな技術と安心の建設・建築工事</title>
-    <style>
-        :root {
-            --primary: #1A365D;      /* 信頼感のあるディープブルー */
-            --accent: #C59B27;       /* 高級感のあるゴールド・イエロー */
-            --bg-light: #F8FAFC;
-            --text-dark: #2D3748;
-            --text-muted: #718096;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社楽安 | 大工工事・石膏ボード工事・内装リフォーム</title>
+  <meta name="description" content="株式会社楽安は、大工工事・石膏ボード工事・リフォーム工事を通じて、一つひとつの施工を誠実に積み重ねています。">
+  
+  <!-- OGP (SNS共有設定) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="株式会社楽安 | 大工工事・石膏ボード工事・内装リフォーム">
+  <meta property="og:description" content="一つひとつの施工に、誠実な仕事を。">
+  <meta property="og:url" content="https://rakuan.co.jp/">
+  <meta property="og:image" content="https://rakuan.co.jp/images/main.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, sans-serif;
-        }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Noto+Sans+JP:wght@300;400;500&family=Yomogi&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            color: var(--text-dark);
-            line-height: 1.7;
-            background-color: #FFFFFF;
-        }
-
-        /* --- Header & Nav --- */
-        header {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            border-bottom: 1px solid #E2E8F0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-        }
-
-        .logo {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.85)), 
-                        url('https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-            color: #FFFFFF;
-            padding: 7rem 5% 6rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: #E2E8F0;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn-cta {
-            display: inline-block;
-            background-color: var(--accent);
-            color: #FFFFFF;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: opacity 0.2s;
-        }
-
-        .btn-cta:hover {
-            opacity: 0.9;
-        }
-
-        /* --- Common Layout --- */
-        section {
-            padding: 5rem 5%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-
-        .section-title p {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- Strengths (特徴) --- */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        /* --- Services (事業内容) --- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-content {
-            padding: 1.5rem;
-        }
-
-        .service-content h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- Works (施工実績) --- */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .work-item {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #000;
-        }
-
-        .work-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            opacity: 0.85;
-            transition: opacity 0.2s;
-        }
-
-        .work-item:hover img {
-            opacity: 0.6;
-        }
-
-        .work-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: #FFF;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        /* --- Company & Careers Table --- */
-        .custom-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: #FFFFFF;
-        }
-
-        .custom-table th, .custom-table td {
-            padding: 1.2rem 1rem;
-            border-bottom: 1px solid #E2E8F0;
-            text-align: left;
-        }
-
-        .custom-table th {
-            width: 25%;
-            color: var(--primary);
-            background-color: var(--bg-light);
-            font-weight: bold;
-        }
-
-        /* --- Careers 特有スタイル --- */
-        .careers-badge {
-            display: inline-block;
-            background: var(--primary);
-            color: #FFF;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        /* --- Contact CTA --- */
-        .contact-cta {
-            background-color: var(--primary);
-            color: #FFFFFF;
-            text-align: center;
-            border-radius: 12px;
-            padding: 4rem 2rem;
-            margin-bottom: 5rem;
-        }
-
-        .contact-cta h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-cta p {
-            margin-bottom: 2rem;
-            color: #CBD5E0;
-        }
-
-        .phone-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #0F172A;
-            color: var(--text-muted);
-            text-align: center;
-            padding: 2rem 5%;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 768px) {
-            header { flex-direction: column; gap: 1rem; }
-            nav ul { gap: 1rem; font-size: 0.85rem; wrap: wrap; justify-content: center; }
-            .hero h1 { font-size: 1.8rem; }
-            .custom-table th, .custom-table td { display: block; width: 100%; }
-            .custom-table th { background: transparent; padding-bottom: 0.2rem; color: var(--accent); }
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
-    <!-- ヘッダーナビゲーション -->
-    <header>
-        <div class="logo">株式会社楽安</div>
-        <nav>
-            <ul>
-                <li><a href="#about">特徴</a></li>
-                <li><a href="#services">事業内容</a></li>
-                <li><a href="#works">施工実績</a></li>
-                <li><a href="#company">会社概要</a></li>
-                <li><a href="#careers">採用情報</a></li>
-                <li><a href="#contact">お問い合わせ</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- メインビジュアル -->
-    <div class="hero">
-        <h1>確かな技術と信頼で、<br>未来の基盤を創る</h1>
-        <p>株式会社楽安は、安全第一と誠実な施工で地域社会とお客様の期待に応える建築・建設パートナーです。</p>
-        <a href="#contact" class="btn-cta">ご相談・お見積もりはこちら</a>
+  <!-- ヘッダー -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-main">RAKUAN</span>
+        <span class="logo-sub">株式会社楽安</span>
+      </a>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#service">SERVICE</a></li>
+          <li><a href="#works">WORKS</a></li>
+          <li><a href="#days">RAKUAN DAYS</a></li>
+          <li><a href="#recruit">RECRUIT</a></li>
+          <li><a href="#contact" class="nav-contact">CONTACT</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- 楽安の強み -->
-    <section id="about">
-        <div class="section-title">
-            <h2>楽安の強み</h2>
-            <p>Our Strengths</p>
-        </div>
-        <div class="features">
-            <div class="feature-card">
-                <h3>01. 徹底した安全管理と品質</h3>
-                <p>現場での安全基準を徹底し、高品質な施工管理により長年信頼される建造物を提供し続けます。</p>
-            </div>
-            <div class="feature-card">
-                <h3>02. 豊富な施工実績と対応力</h3>
-                <p>大規模な建設工事から細やかな改修・リフォーム工事まで、お客様のニーズに柔軟に対応します。</p>
-            </div>
-            <div class="feature-card">
-                <h3>03. 誠実なワンストップ提案</h3>
-                <p>ご相談・計画から設計、施工、アフターメンテナンスまで、一貫してサポートいたします。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- 事業内容 -->
-    <section id="services" style="background-color: var(--bg-light); max-width: 100%; padding-left: 5%; padding-right: 5%;">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <div class="section-title">
-                <h2>事業内容</h2>
-                <p>Services</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="service-content">
-                        <h3>建築工事事業</h3>
-                        <p>店舗、事務所、住宅など、用途に応じた最適なデザインと強固な構造を備えた建築物を施工・管理いたします。</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="service-content">
-                        <h3>土木・設備工事事業</h3>
-                        <p>道路、造成、基礎工事など、建物の基盤となるインフラストラクチャーの整備を最新設備で安全に行います。</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80');"></div>
-                    <div class="service-content">
-                        <h3>リフォーム・改修工事</h3>
-                        <p>経年劣化の補修から間取りの変更、省エネ化対応まで、資産価値を高める空間のリノベーションをご提案します。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 施工実績 -->
-    <section id="works">
-        <div class="section-title">
-            <h2>施工実績</h2>
-            <p>Works</p>
-        </div>
-        <div class="works-grid">
-            <div class="work-item">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" alt="オフィスビル建設">
-                <div class="work-caption">都内オフィスビル 新築工事</div>
-         
-    </section>
-
-    <!-- 会社概要 -->
-    <section id="company">
-        <div class="section-title">
-            <h2>会社概要</h2>
-            <p>Company Profile</p>
-        </div>
-        <table class="custom-table">
-            <tr>
-                <th>会社名</th>
-                <td>株式会社楽安（Rakuan, Inc.）</td>
-            </tr>
-            <tr>
-                <th>代表者</th>
-                <td>代表取締役 福田元　（フクダ　ゲン）</td>
-            </tr>
-            <tr>
-                <th>所在地</th>
-                <td>〒289-1143 千葉県八街市八街い１３９番地５５</td>
-            </tr>
-            <tr>
-                <th>電話番号</th>
-                <td>043-330-7101</td>
-            
-                <th>事業内容</th>
-                <td>大工工事・石膏ボード工事を中心に、内装工事やリフォーム工事を手掛けています。</td>
-            </tr>
-        </table>
-    </section>
-
-    <!-- 採用情報セクション（追加） -->
-    <section id="careers" style="background-color: var(--bg-light); max-width: 100%; padding-left: 5%; padding-right: 5%;">
-        <div style="max-width: 1100px; margin: 0 auto;">
-            <div class="section-title">
-                <h2>採用情報</h2>
-                <p>Careers</p>
-            </div>
-            <div style="text-align: center; margin-bottom: 2.5rem;">
-                <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 0.5rem;">街づくりを支え、ともに成長する仲間を募集しています</h3>
-                <p style="color: var(--text-muted);">未経験者から経験者まで、成長を後押しする環境を整えています。まずはお気軽にご応募ください。</p>
-            </div>
-
-            <table class="custom-table">
-                <tr>
-                    <th>募集職種</th>
-                    <td>
-                        <span class="careers-badge">正社員</span> <strong>1. 施工管理・現場監督</strong><br>
-                        <span class="careers-badge" style="background: #4A5568;">アルバイト</span> <strong>2. 建築技能工・現場作業員</strong>
-                    </td>
-                </tr>
-                <tr>
-                    <th>給与</th>
-                    <td>
-                        <strong>未経験者：</strong> 月給 250,000円以上<br>
-                        <strong>経験者：</strong> 月給 330,000円以上<br>
-                        <small style="color: var(--text-muted);">※（日払い・週払い等もご相談可能）昇給あり・賞与年2回（業績による）</small>
-                    </td>
-                </tr>
-                <tr>
-                    <th>勤務地</th>
-                    <td>施工現場（千葉市、船橋市、八千代市、東京都内など）<br><small style="color: var(--text-muted);">※試用期間後、直行直帰OK/マイカー通勤可</small></td>
-                </tr>
-                <tr>
-                    <th>勤務時間</th>
-                    <td>8:00 〜 17:00（休憩 2時間含む）</td>
-                </tr>
-                <tr>
-                    <th>応募資格</th>
-                    <td>
-                        学歴・経験不問！人物重視の採用を行っています。<br>
-                        ※普通自動車免許（AT限定可）をお持ちの方歓迎<br>
-                        ※各種技能講習修了者は優遇いたします。
-                    </td>
-                </tr>
-                <tr>
-                    <th>休日・休暇</th>
-                    <td>年間105日（日曜日、GW、夏季休暇、年末年始休暇、有給休暇）</td>
-                </tr>
-                <tr>
-                    <th>待遇・福利厚生</th>
-                    <td>
-                        ・社会保険完備（雇用・労災・健康・厚生年金）<br>
-                        ・資格取得支援環境
-                        ・交通費規定支給/作業着・工具貸与
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-    <!-- お問い合わせ導線 -->
-    <div style="padding: 0 5%; margin-top: 5rem;">
-        <div class="contact-cta" id="contact">
-            <h2>ご相談・お見積もり・求人応募はこちら</h2>
-            <p>お電話またはメールでお気軽にお問い合わせください。</p>
-            <div class="phone-number">TEL: 043-330-7101</div>
-            <a href="mailto:info@rakuan.co.jp" class="btn-cta" style="background-color: #FFFFFF; color: var(--primary);">メールでお問い合わせ</a>
-        </div>
+  <!-- メインビジュアル (Ken Burns ズーム効果) -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-copy">一つひとつの施工に、<br>誠実な仕事を。</h1>
     </div>
+  </section>
 
-    <!-- フッター -->
-    <footer>
-        <p>&copy; Rakuan, Inc. All Rights Reserved.</p>
-    </footer>
+  <!-- ABOUT -->
+  <section id="about" class="section about-section">
+    <div class="container fade-in">
+      <span class="section-subtitle">ABOUT</span>
+      <h2 class="section-title">会社紹介</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead-text">
+            株式会社楽安は、<br>
+            大工工事・石膏ボード工事・リフォーム工事を通じて、<br>
+            一つひとつの施工を誠実に積み重ねています。
+          </p>
+          <p class="description">
+            見えない下地から、住まいの未来を丁寧に。派手さではなく職人としての誇りを胸に、確かな技術と安心をお届けします。
+          </p>
+        </div>
+        <div class="about-image-wrap">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80" alt="楽安の現場作業" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- SERVICE -->
+  <section id="service" class="section service-section">
+    <div class="container fade-in">
+      <span class="section-subtitle">SERVICE</span>
+      <h2 class="section-title">事業内容</h2>
+      <div class="service-grid">
+        
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80" alt="大工工事" loading="lazy">
+          </div>
+          <span class="service-num">01</span>
+          <h3 class="service-name">大工工事</h3>
+          <p class="service-desc">構造の正確さと細部へのこだわり。住まいの骨組みを創る確かな木工技術。</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="石膏ボード工事" loading="lazy">
+          </div>
+          <span class="service-num">02</span>
+          <h3 class="service-name">石膏ボード工事</h3>
+          <p class="service-desc">壁や天井の素地を美しく仕上げる。隙間のない精密なボード施工。</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80" alt="リフォーム工事" loading="lazy">
+          </div>
+          <span class="service-num">03</span>
+          <h3 class="service-name">リフォーム工事</h3>
+          <p class="service-desc">暮らしの変化に合わせた空間の再構築。丁寧な施工で快適な住まいへ。</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS (Pinterest風ではなく余白重視ギャラリー) -->
+  <section id="works" class="section works-section">
+    <div class="container fade-in">
+      <span class="section-subtitle">WORKS</span>
+      <h2 class="section-title">施工写真ギャラリー</h2>
+      <div class="works-grid">
+        <div class="works-item">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80" alt="施工事例1" loading="lazy">
+        </div>
+        <div class="works-item">
+          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80" alt="施工事例2" loading="lazy">
+        </div>
+        <div class="works-item">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80" alt="施工事例3" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RAKUAN DAYS (4コマ漫画カード) -->
+  <section id="days" class="section days-section">
+    <div class="container fade-in">
+      <span class="section-subtitle">RAKUAN DAYS</span>
+      <h2 class="section-title">楽安のつぶやき</h2>
+      <p class="section-desc">現場の日常や職人の想いを4コマ漫画でお届けします。</p>
+
+      <div class="comic-grid">
+        <!-- 漫画カード 1 -->
+        <article class="comic-card">
+          <div class="comic-badge">第1話</div>
+          <div class="comic-thumb">
+            <div class="comic-panel-preview">
+              <span>四コマ</span>
+              <span>漫画</span>
+            </div>
+          </div>
+          <h3 class="comic-title">「下地の秘密」の巻</h3>
+          <p class="comic-excerpt">完成すると隠れてしまう石膏ボード。実はここが一番大事なんです。</p>
+          <a href="#" class="read-more">続きを読む →</a>
+        </article>
+
+        <!-- 漫画カード 2 -->
+        <article class="comic-card">
+          <div class="comic-badge">第2話</div>
+          <div class="comic-thumb">
+            <div class="comic-panel-preview">
+              <span>四コマ</span>
+              <span>漫画</span>
+            </div>
+          </div>
+          <h3 class="comic-title">「道具への愛着」の巻</h3>
+          <p class="comic-excerpt">職人が毎日使う相棒たち。ミリ単位の調整を支える秘密兵器。</p>
+          <a href="#" class="read-more">続きを読む →</a>
+        </article>
+
+        <!-- 漫画カード 3 -->
+        <article class="comic-card">
+          <div class="comic-badge">第3話</div>
+          <div class="comic-thumb">
+            <div class="comic-panel-preview">
+              <span>四コマ</span>
+              <span>漫画</span>
+            </div>
+          </div>
+          <h3 class="comic-title">「現場の休憩時間」の巻</h3>
+          <p class="comic-excerpt">お茶を飲みながら今日のおさらい。楽安チームのチームワーク。</p>
+          <a href="#" class="read-more">続きを読む →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECRUIT (背景写真付き) -->
+  <section id="recruit" class="section recruit-section">
+    <div class="recruit-bg"></div>
+    <div class="container recruit-content fade-in">
+      <span class="section-subtitle">RECRUIT</span>
+      <h2 class="recruit-title">ともに、誠実な仕事を。</h2>
+      <p class="recruit-desc">楽安では、大工・内装工事に誇りを持って取り組む仲間を募集しています。</p>
+      <a href="#contact" class="btn-minimal">求人詳細・応募はこちら</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section contact-section">
+    <div class="container fade-in">
+      <span class="section-subtitle">CONTACT</span>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="contact-lead">工事のご依頼、お見積もり、採用に関するご質問など、お気軽にご連絡ください。</p>
+      
+      <div class="contact-box">
+        <a href="mailto:info@rakuan.co.jp" class="email-link">info@rakuan.co.jp</a>
+        <p class="company-address">株式会社楽安<br>〒289-1143 千葉県八街市八街い１３９番地５５</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <span class="logo-main">RAKUAN</span>
+        <span class="logo-sub">株式会社楽安</span>
+      </div>
+      <p class="copyright">&copy; 2026 RAKUAN Co., Ltd. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
