@@ -532,7 +532,45 @@ a {
   font-size: 0.95rem;
   color: var(--text-sub) !important;
 }
+/* Contact */
+.contact-section {
+  text-align: center;
+}
 
+.contact-lead {
+  color: var(--text-sub) !important;
+  margin-bottom: 40px;
+  font-size: 1.05rem;
+}
+
+.contact-box {
+  background: var(--bg-card);
+  padding: 48px 32px;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 追加：お問い合わせ画像のスタイル */
+.contact-info-img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 24px auto;
+  border-radius: 4px;
+  display: block;
+}
+
+.email-link {
+  font-size: 1.8rem;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.company-address {
+  font-size: 0.95rem;
+  color: var(--text-sub) !important;
+}
 /* Footer */
 .footer {
   padding: 40px 0;
