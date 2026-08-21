@@ -466,3 +466,73 @@ a {
   .email-link { font-size: 1.25rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
+/* ==========================================================================
+   Recruit Poster Section
+   ========================================================================== */
+.recruit-section {
+  background-color: #1F2326;
+  color: #FFFFFF;
+}
+
+.recruit-title-light {
+  color: #FFFFFF;
+}
+
+.recruit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ポスター画像の額縁枠 */
+.recruit-poster-wrap {
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+}
+
+.recruit-poster-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.recruit-copy {
+  font-size: 1.75rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+
+.recruit-desc {
+  font-size: 0.95rem;
+  color: #CCCCCC;
+  margin-bottom: 32px;
+  line-height: 1.9;
+}
+
+.btn-recruit {
+  display: inline-block;
+  padding: 14px 32px;
+  background-color: #FFFFFF;
+  color: #111111;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border-radius: 2px;
+  transition: opacity 0.3s ease;
+}
+
+.btn-recruit:hover {
+  opacity: 0.8;
+}
+
+/* スマホ表示対応 */
+@media (max-width: 768px) {
+  .recruit-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
