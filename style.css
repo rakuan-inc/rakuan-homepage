@@ -1,9 +1,9 @@
 /* ==========================================================================
-   RAKUAN Style Sheet (Indie Flower + Zen Maru Gothic Combined Version)
+   RAKUAN Style Sheet (Autour One + Zen Maru Gothic Combined Version)
    ========================================================================== */
 
 /* Google Fonts 読み込み */
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Autour+One&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 
 :root {
   --bg-color: #FAFAFA;
@@ -11,8 +11,8 @@
   --text-main: #304e17; /* ダークモスグリーン */
   --text-sub: #546b41;  /* 柔らかいモスグリーン */
   --border-color: #E8E6E3;
-  /* 英字は Indie Flower、日本語は Zen Maru Gothic へ自動切り替え */
-  --font-main: 'Indie Flower', 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  /* 英字は Autour One、日本語は Zen Maru Gothic へ自動適用 */
+  --font-main: 'Autour One', 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
   --font-hand: 'Yomogi', cursive;
 }
 
@@ -66,7 +66,7 @@ a {
 
 .section-subtitle {
   display: block;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   letter-spacing: 0.15em;
   color: var(--text-sub) !important;
   margin-bottom: 8px;
@@ -108,7 +108,7 @@ a {
 }
 
 .logo-main {
-  font-size: 1.85rem;
+  font-size: 1.6rem;
   letter-spacing: 0.15em;
   line-height: 1.1;
 }
@@ -127,8 +127,8 @@ a {
 }
 
 .nav a {
-  font-size: 1.25rem;
-  letter-spacing: 0.1em;
+  font-size: 1.0rem;
+  letter-spacing: 0.08em;
 }
 
 .nav a:hover {
@@ -240,7 +240,7 @@ a {
 }
 
 .service-num {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--text-sub) !important;
   display: block;
   margin-bottom: 4px;
@@ -347,7 +347,7 @@ a {
 }
 
 .read-more {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   font-weight: 700;
 }
 
@@ -403,7 +403,7 @@ a {
   padding: 16px 36px;
   background-color: #FFFFFF;
   color: #111111 !important;
-  font-size: 1.05rem;
+  font-size: 1.0rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   border-radius: 2px;
@@ -435,7 +435,7 @@ a {
 }
 
 .email-link {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   display: inline-block;
   margin-bottom: 16px;
 }
@@ -459,7 +459,7 @@ a {
 }
 
 .copyright {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: var(--text-sub) !important;
 }
 
@@ -478,6 +478,6 @@ a {
   }
 
   .nav { display: none; }
-  .email-link { font-size: 1.5rem; }
+  .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
