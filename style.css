@@ -30,8 +30,8 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-sans);
-  font-size: 1.05rem; /* 基本文字サイズ（約17px） */
-  font-weight: 500;    /* 少し太めにして視認性アップ */
+  font-size: 1.5rem; /* 基本文字サイズ（約17px） */
+  font-weight: 700;    /* 少し太めにして視認性アップ */
   line-height: 2.1;
   letter-spacing: 0.06em;
   -webkit-font-smoothing: antialiased;
@@ -66,7 +66,7 @@ a {
 .section-subtitle {
   display: block;
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem; /* 大きく変更 */
+  font-size: 1.5rem; /* 大きく変更 */
   font-weight: 600;
   letter-spacing: 0.2em;
   color: var(--text-sub) !important;
@@ -75,7 +75,7 @@ a {
 }
 
 .section-title {
-  font-size: 1.85rem; /* 大きく変更 */
+  font-size: 2.8rem; /* 大きく変更 */
   font-weight: 700;
   letter-spacing: 0.12em;
   margin-bottom: 48px;
@@ -110,13 +110,13 @@ a {
 
 .logo-main {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 2.4rem;
+  font-weight: 800;
   letter-spacing: 0.2em;
 }
 
 .logo-sub {
-  font-size: 0.75rem;
+  font-size: 1.75rem;
   color: var(--text-sub);
   font-family: var(--font-hand);
 }
@@ -130,7 +130,7 @@ a {
 
 .nav a {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.95rem; /* 大きく変更 */
+  font-size: 1.5rem; /* 大きく変更 */
   font-weight: 600;
   letter-spacing: 0.12em;
 }
@@ -175,7 +175,7 @@ a {
 }
 
 .hero-copy {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 2.0;
   letter-spacing: 0.12em;
@@ -190,7 +190,7 @@ a {
 }
 
 .lead-text {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 2.2;
   margin-bottom: 24px;
@@ -198,7 +198,7 @@ a {
 
 .description {
   color: var(--text-sub) !important;
-  font-size: 1.0rem;
+  font-size: 1.5rem;
   line-height: 2.0;
 }
 
@@ -245,7 +245,7 @@ a {
 
 .service-num {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.0rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-sub) !important;
   display: block;
@@ -253,13 +253,13 @@ a {
 }
 
 .service-name {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .service-desc {
-  font-size: 1.0rem;
+  font-size: 1.5rem;
   color: var(--text-sub) !important;
   line-height: 1.9;
 }
@@ -294,7 +294,7 @@ a {
   color: var(--text-sub) !important;
   margin-top: -32px;
   margin-bottom: 48px;
-  font-size: 1.0rem;
+  font-size: 1.5rem;
 }
 
 .comic-grid {
@@ -314,7 +314,7 @@ a {
 
 .comic-badge {
   font-family: var(--font-hand);
-  font-size: 1.0rem;
+  font-size: 1.5rem;
   color: var(--text-sub) !important;
   margin-bottom: 8px;
 }
@@ -332,20 +332,20 @@ a {
 
 .comic-panel-preview {
   font-family: var(--font-hand);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #999999 !important;
   display: flex;
   gap: 12px;
 }
 
 .comic-title {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .comic-excerpt {
-  font-size: 1.0rem;
+  font-size: 1.5rem;
   color: var(--text-sub) !important;
   margin-bottom: 24px;
   flex-grow: 1;
@@ -353,7 +353,7 @@ a {
 }
 
 .read-more {
-  font-size: 0.95rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
