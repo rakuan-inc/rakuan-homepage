@@ -59,7 +59,78 @@
       <h1 class="hero-copy">一つひとつの施工に、<br>誠実な仕事を。</h1>
     </div>
   </section>
+<!-- スライドショーセクション -->
+<section class="hero-slider-section">
+  <div class="swiper main-swiper">
+    <div class="swiper-wrapper">
+      
+      <!-- スライド 1 -->
+      <div class="swiper-slide">
+        <div class="slide-inner">
+          <div class="slide-image-wrap">
+            <img src="images/about3.png" alt="楽安の施工風景1">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide-content">
+            <h2 class="slide-title">ひとつひとつの施工を、誠実に。</h2>
+            <p class="slide-desc">大工工事・石膏ボード工事・内装リフォーム</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- スライド 2 -->
+      <div class="swiper-slide">
+        <div class="slide-inner">
+          <div class="slide-image-wrap">
+            <img src="images/about1.jpg" alt="楽安の施工風景2">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide-content">
+            <h2 class="slide-title">見えない下地から丁寧な仕事を。</h2>
+            <p class="slide-desc">職人の誇りを胸に確かな技術をお届けします</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- スライド 3 -->
+      <div class="swiper-slide">
+        <div class="slide-inner">
+          <div class="slide-image-wrap">
+            <img src="images/about2.jpg" alt="楽安の施工風景3">
+            <div class="slide-overlay"></div>
+          </div>
+          <div class="slide-content">
+            <h2 class="slide-title">住まいの未来をつくる手仕事。</h2>
+            <p class="slide-desc">株式会社楽安</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- ページネーション（横線の指示マーク） -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!-- スライドショーの動的設定脚本 -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.main-swiper', {
+      loop: true,
+      effect: 'fade', /* ふんわり切り替わるフェード効果 */
+      fadeEffect: { crossFade: true },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
   <!-- ABOUT -->
   <section id="about" class="section about-section">
     <div class="container">
