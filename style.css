@@ -150,7 +150,7 @@ a {
   font-family: var(--font-hand) !important;
   margin-top: 3px;
   letter-spacing: 0.04em;
-  font-weight: normal;
+  font-weight: 700 !important;;
   display: block;
 }
 
@@ -212,7 +212,8 @@ a {
   font-family: var(--font-hand) !important; /* Yomogiで手書き風の温かみをプラス */
   margin-top: 3px;
   letter-spacing: 0.04em;
-  font-weight: normal;
+  font-weight: 700 !important;
+   
 }
 
 .nav a:hover {
