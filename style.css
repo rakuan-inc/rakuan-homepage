@@ -5,11 +5,11 @@
 :root {
   --bg-color: #FAFAFA;
   --bg-card: #FFFFFF;
-  --text-main: #111111;
-  --text-sub: #666666;
-  --border-color: #E5E5E5;
-  --font-sans: 'Noto Sans JP', 'Montserrat', sans-serif;
-  --font-hand: 'Yomogi', 'Noto Sans JP', cursive;
+  --text-main: #304e17; /* ★ダークモスグリーンに変更 */
+  --text-sub: #546b41;  /* ★サブテキストも馴染むグリーン系に調整 */
+  --border-color: #E8E6E3;
+  --font-sans: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  --font-hand: 'Yomogi', cursive;
 }
 
 *, *::before, *::after {
