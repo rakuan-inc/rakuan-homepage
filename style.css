@@ -1,9 +1,9 @@
 /* ==========================================================================
-   RAKUAN Style Sheet (Large Font Version)
+   RAKUAN Style Sheet (Indie Flower English Typography)
    ========================================================================== */
 
 /* Google Fonts 読み込み */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Montserrat:wght@400;500;600&family=Yomogi&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
 
 :root {
   --bg-color: #FAFAFA;
@@ -12,6 +12,7 @@
   --text-sub: #546b41;  /* 柔らかいモスグリーン */
   --border-color: #E8E6E3;
   --font-sans: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  --font-eng: 'Indie Flower', cursive; /* 英語用フォント */
   --font-hand: 'Yomogi', cursive;
 }
 
@@ -30,14 +31,14 @@ body {
   background-color: var(--bg-color);
   color: var(--text-main);
   font-family: var(--font-sans);
-  font-size: 1.5rem; /* 基本文字サイズ（約17px） */
-  font-weight: 700;    /* 少し太めにして視認性アップ */
+  font-size: 1.05rem;
+  font-weight: 500;
   line-height: 2.1;
   letter-spacing: 0.06em;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 全テキスト要素へフォントとダークモスグリーンを適用 */
+/* 全テキスト要素へデフォルトフォントとカラーを適用 */
 body, h1, h2, h3, h4, h5, h6, p, a, span, li, div {
   font-family: var(--font-sans);
   color: var(--text-main);
@@ -63,19 +64,20 @@ a {
   padding: 100px 0;
 }
 
+/* 英語のセクション小見出し（ABOUT / SERVICE / WORKS 等） */
 .section-subtitle {
   display: block;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem; /* 大きく変更 */
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-family: var(--font-eng) !important;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
   color: var(--text-sub) !important;
   margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .section-title {
-  font-size: 2.8rem; /* 大きく変更 */
+  font-size: 1.85rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   margin-bottom: 48px;
@@ -109,14 +111,15 @@ a {
 }
 
 .logo-main {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: 0.2em;
+  font-family: var(--font-eng) !important;
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  line-height: 1.1;
 }
 
 .logo-sub {
-  font-size: 1.75rem;
+  font-size: 0.75rem;
   color: var(--text-sub);
   font-family: var(--font-hand);
 }
@@ -129,10 +132,10 @@ a {
 }
 
 .nav a {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem; /* 大きく変更 */
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-family: var(--font-eng) !important;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
 .nav a:hover {
@@ -175,7 +178,7 @@ a {
 }
 
 .hero-copy {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
   line-height: 2.0;
   letter-spacing: 0.12em;
@@ -190,7 +193,7 @@ a {
 }
 
 .lead-text {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   line-height: 2.2;
   margin-bottom: 24px;
@@ -198,7 +201,7 @@ a {
 
 .description {
   color: var(--text-sub) !important;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   line-height: 2.0;
 }
 
@@ -244,22 +247,22 @@ a {
 }
 
 .service-num {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: var(--font-eng) !important;
+  font-size: 1.2rem;
+  font-weight: 400;
   color: var(--text-sub) !important;
   display: block;
   margin-bottom: 4px;
 }
 
 .service-name {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .service-desc {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   color: var(--text-sub) !important;
   line-height: 1.9;
 }
@@ -294,7 +297,7 @@ a {
   color: var(--text-sub) !important;
   margin-top: -32px;
   margin-bottom: 48px;
-  font-size: 1.5rem;
+  font-size: 1.0rem;
 }
 
 .comic-grid {
@@ -314,7 +317,7 @@ a {
 
 .comic-badge {
   font-family: var(--font-hand);
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   color: var(--text-sub) !important;
   margin-bottom: 8px;
 }
@@ -332,20 +335,20 @@ a {
 
 .comic-panel-preview {
   font-family: var(--font-hand);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: #999999 !important;
   display: flex;
   gap: 12px;
 }
 
 .comic-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 12px;
 }
 
 .comic-excerpt {
-  font-size: 1.5rem;
+  font-size: 1.0rem;
   color: var(--text-sub) !important;
   margin-bottom: 24px;
   flex-grow: 1;
@@ -353,7 +356,7 @@ a {
 }
 
 .read-more {
-  font-size: 1.5rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
@@ -441,9 +444,9 @@ a {
 }
 
 .email-link {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.85rem;
-  font-weight: 600;
+  font-family: var(--font-eng) !important;
+  font-size: 2.1rem;
+  font-weight: 400;
   display: inline-block;
   margin-bottom: 16px;
 }
@@ -467,9 +470,9 @@ a {
 }
 
 .copyright {
-  font-size: 0.85rem;
+  font-size: 1.0rem;
   color: var(--text-sub) !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-eng) !important;
 }
 
 /* Responsive */
@@ -487,6 +490,6 @@ a {
   }
 
   .nav { display: none; }
-  .email-link { font-size: 1.35rem; }
+  .email-link { font-size: 1.5rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
