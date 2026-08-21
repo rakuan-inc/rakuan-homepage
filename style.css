@@ -607,3 +607,105 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
+/* ==========================================================================
+   スライドショー (Yokota Nojo Style)
+   ========================================================================== */
+
+.hero-slider-section {
+  padding: 120px 0 60px;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+
+.main-swiper {
+  max-width: 1000px;
+  width: 92%;
+  margin: 0 auto;
+  padding-bottom: 50px !important;
+}
+
+.slide-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 参考サイトのような丸み・柔らかい楕円状の写真フレーム */
+.slide-image-wrap {
+  width: 100%;
+  height: 480px;
+  border-radius: 50% / 35%; /* 横長のだ円型マスク */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 12px 32px rgba(48, 78, 23, 0.08);
+}
+
+.slide-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 文字を読みやすくするための暗めオーバーレイ */
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* 写真中央のテキスト */
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF !important;
+  width: 85%;
+  z-index: 2;
+}
+
+.slide-title {
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: #FFFFFF !important;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.slide-desc {
+  font-size: 1.1rem;
+  color: #FFFFFF !important;
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+/* 下部インジケーター（参考サイト風の横長バー） */
+.swiper-pagination-bullet {
+  width: 28px !important;
+  height: 5px !important;
+  border-radius: 3px !important;
+  background: #A8BBA2 !important;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+  width: 48px !important;
+  background: var(--text-main) !important; /* ダークモスグリーン */
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .slide-image-wrap {
+    height: 320px;
+    border-radius: 30px; /* スマホでは角丸カードに変更 */
+  }
+  .slide-title { font-size: 1.3rem; }
+  .slide-desc { font-size: 0.9rem; }
+}
