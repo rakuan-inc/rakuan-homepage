@@ -853,3 +853,25 @@ a {
   box-shadow: 0 10px 25px rgba(48, 78, 23, 0.4) !important;
   opacity: 1 !important;
 }
+/* ==========================================
+   CONTACT：カード枠・画像・ボタンの1.5倍拡大
+   ========================================== */
+.contact-box {
+  max-width: 850px !important; /* 横幅を520pxから850px（約1.5倍）に拡大 */
+  padding: 56px 40px !important; /* カード内の余白も拡大 */
+  border-radius: 16px !important;
+}
+
+/* 枠拡大に合わせて名刺画像も拡大 */
+.contact-info-img {
+  max-width: 720px !important; /* 名刺画像のサイズ上限を拡大 */
+  width: 100% !important;
+  height: auto !important;
+  margin: 0 auto 32px auto !important;
+}
+
+/* 枠に合わせてボタンもひとまわり大きく調整 */
+.contact-box a.contact-form-btn {
+  font-size: 1.3rem !important;
+  padding: 20px 56px !important;
+}
