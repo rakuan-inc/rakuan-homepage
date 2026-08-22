@@ -710,3 +710,46 @@ a {
   .slide-title { font-size: 1.3rem; }
   .slide-desc { font-size: 0.9rem; }
 }
+/* 案B：安心バッジ ＋ 立体ボタン */
+.recruit-info-box {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.recruit-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.badge {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF !important;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recruit-btn-shiny {
+  display: inline-block;
+  background: linear-gradient(135deg, #446e22 0%, #233a10 100%);
+  color: #FFFFFF !important;
+  font-size: 1.15rem;
+  font-weight: bold;
+  padding: 18px 42px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.recruit-btn-shiny:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(68, 110, 34, 0.5);
+}
