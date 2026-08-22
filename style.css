@@ -710,46 +710,51 @@ a {
   .slide-title { font-size: 1.3rem; }
   .slide-desc { font-size: 0.9rem; }
 }
-/* 案B：安心バッジ ＋ 立体ボタン */
+/* ==========================================
+   RECRUIT：安心バッジ ＋ 立体ボタン (強効化)
+   ========================================== */
 .recruit-info-box {
   text-align: center;
-  padding: 20px 0;
+  margin-top: 24px;
 }
 
+/* バッジエリア */
 .recruit-badges {
-  display: flex;
+  display: flex !important;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin: 24px 0 16px 0 !important;
 }
 
 .badge {
-  background: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.15) !important;
   color: #FFFFFF !important;
-  font-size: 0.8rem;
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.85rem !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  display: inline-block !important;
 }
 
+/* 立体応募ボタン */
 .recruit-btn-shiny {
-  display: inline-block;
-  background: linear-gradient(135deg, #446e22 0%, #233a10 100%);
+  display: inline-block !important;
+  background: linear-gradient(135deg, #5c8f30 0%, #304e17 100%) !important;
   color: #FFFFFF !important;
-  font-size: 1.15rem;
-  font-weight: bold;
-  padding: 18px 42px;
-  border-radius: 12px;
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  font-size: 1.1rem !important;
+  font-weight: bold !important;
+  padding: 18px 36px !important;
+  border-radius: 12px !important;
+  text-decoration: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+  margin-top: 8px;
 }
 
 .recruit-btn-shiny:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(68, 110, 34, 0.5);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(92, 143, 48, 0.5) !important;
+  opacity: 1 !important;
 }
