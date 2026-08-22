@@ -799,3 +799,26 @@ a {
   margin: 0 auto;
   padding: 0 32px;
 }
+/* ==========================================
+   CONTACT：フォーム遷移ボタン
+   ========================================== */
+.contact-form-btn {
+  display: inline-block !important;
+  background-color: var(--text-main) !important; /* ダークモスグリーン */
+  color: #FFFFFF !important;
+  font-size: 1.15rem !important;
+  font-weight: bold !important;
+  padding: 16px 40px !important;
+  border-radius: 50px !important; /* ピル型角丸 */
+  text-decoration: none !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+  transition: all 0.3s ease !important;
+  margin-top: 8px !important;
+}
+
+.contact-form-btn:hover {
+  background-color: #3d631e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(48, 78, 23, 0.3) !important;
+  opacity: 1 !important;
+}
