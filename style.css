@@ -822,3 +822,32 @@ a {
   box-shadow: 0 6px 20px rgba(48, 78, 23, 0.3) !important;
   opacity: 1 !important;
 }
+/* ==========================================
+   CONTACT：3D立体グラデーションボタン
+   ========================================== */
+.contact-box {
+  text-align: center !important;
+}
+
+.contact-box a.contact-form-btn {
+  display: inline-block !important;
+  background: linear-gradient(135deg, #5c8f30 0%, #304e17 100%) !important; /* 立体グラデーショングリーン */
+  color: #FFFFFF !important; /* 白文字 */
+  font-size: 1.15rem !important;
+  font-weight: bold !important;
+  padding: 18px 42px !important;
+  border-radius: 12px !important; /* 角丸ボタン */
+  text-decoration: none !important; /* 下線を消す */
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important; /* 立体的な影 */
+  transition: all 0.3s ease !important;
+  margin: 16px auto 0 auto !important;
+  cursor: pointer !important;
+}
+
+/* ホバー（マウスを乗せた時）の動き */
+.contact-box a.contact-form-btn:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 10px 25px rgba(48, 78, 23, 0.4) !important;
+  opacity: 1 !important;
+}
