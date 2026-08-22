@@ -767,10 +767,12 @@ a {
   padding: 80px 0;
 }
 
-.contact-lead {
-  color: #FFFFFF !important; /* 暗い背景でも読めるように白色に変更 */
-  margin-bottom: 40px;
-  font-size: 1.05rem;
+.contact-intro p {
+    color: #34521f;
+    font-size: 16px;
+    line-height: 2.2;
+    letter-spacing: 0.08em;
+}
 }
 
 .contact-box {
