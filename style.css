@@ -170,40 +170,35 @@ a {
   .house-frame, .house-frame-outer, .house-frame-wrapper, .house-frame-content {
     height: 220px !important;
   }
-}
 /* ==========================================
-   JSアニメーション・非表示処理のスマホ強制解除
+   PC保護 ＆ スマホ表示消滅防止（安全版）
    ========================================== */
+
+/* 768px以下のスマホサイズのみに限定適用 */
 @media screen and (max-width: 768px) {
-  /* 1. JS（AOS等）による透明化（opacity: 0）や位置ズレを強制リセット */
-  *, *::before, *::after {
+
+  /* 1. AOS等のスクロールアニメーションによるスマホ時の初期透明化だけを解除 */
+  [data-aos], 
+  .aos-init, 
+  .fade-in, 
+  .js-fade {
     opacity: 1 !important;
-    visibility: visible !important;
     transform: none !important;
-    transition: none !important;
-    animation: none !important;
+    visibility: visible !important;
   }
 
-  /* 2. JSが画面全体に被せる透明・白色の膜を無効化 */
-  .drawer-bg, .overlay, #loading, .loading, .modal-bg {
+  /* 2. スマホで画面を覆ってしまうローダー・全画面膜のみ消去 */
+  #loading, .loading, .loader, .overlay {
     display: none !important;
   }
 
-  /* 3. ページ全体のスクロールと表示を確保 */
-  html, body {
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
-    height: auto !important;
-    background-color: #FAFAFA !important;
-  }
-
-  body {
-    padding-top: 80px !important;
-  }
-
-  /* 4. Swiperスライダー領域の潰れ防止 */
-  .hero-slider-section {
-    min-height: 250px !important;
+  /* 3. スマホ時の主要セクションの表示を担保 */
+  main, 
+  section, 
+  .hero-slider-section, 
+  #about, #service, #works, #days, #recruit, #contact {
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 }
