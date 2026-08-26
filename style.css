@@ -608,52 +608,50 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 /* ==========================================
-   スライドショー：高さ潰れ防止 ＋ おうち型フレーム
+   スライドショー：全消失防止・絶対表示保証CSS
    ========================================== */
 
 .hero-slider-section {
   width: 100% !important;
-  padding: 20px 0 !important;
+  min-height: 380px !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  margin: 20px 0 !important;
 }
 
-/* おうち型フレーム（サイズ固定＆切り抜き） */
 .house-frame {
   width: 90% !important;
   max-width: 520px !important;
-  height: 360px !important; /* 高さを強制指定 */
+  height: 360px !important;
   margin: 0 auto !important;
   position: relative !important;
+  background-color: #e0e0e0 !important; /* 万が一画像が遅れても背景枠を表示 */
   
-  /* 三角屋根の切り抜き */
+  /* おうち型切り抜き */
   -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
   clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-  overflow: hidden !important;
 }
 
-/* Swiper内部要素の高さをすべて継承させて非表示化を防止 */
-.house-frame .main-swiper,
-.house-frame .swiper-wrapper,
-.house-frame .swiper-slide {
+.main-swiper,
+.swiper-wrapper,
+.swiper-slide {
   width: 100% !important;
   height: 100% !important;
-  position: relative !important;
 }
 
-.house-frame .swiper-slide img {
+.swiper-slide img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: center top !important;
   display: block !important;
 }
 
-/* スマホ用高さ調整 */
 @media (max-width: 768px) {
+  .hero-slider-section {
+    min-height: 280px !important;
+  }
   .house-frame {
-    max-width: 92% !important;
     height: 260px !important;
     -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
     clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
