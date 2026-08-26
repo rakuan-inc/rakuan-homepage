@@ -171,3 +171,39 @@ a {
     height: 220px !important;
   }
 }
+/* ==========================================
+   JSアニメーション・非表示処理のスマホ強制解除
+   ========================================== */
+@media screen and (max-width: 768px) {
+  /* 1. JS（AOS等）による透明化（opacity: 0）や位置ズレを強制リセット */
+  *, *::before, *::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* 2. JSが画面全体に被せる透明・白色の膜を無効化 */
+  .drawer-bg, .overlay, #loading, .loading, .modal-bg {
+    display: none !important;
+  }
+
+  /* 3. ページ全体のスクロールと表示を確保 */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    background-color: #FAFAFA !important;
+  }
+
+  body {
+    padding-top: 80px !important;
+  }
+
+  /* 4. Swiperスライダー領域の潰れ防止 */
+  .hero-slider-section {
+    min-height: 250px !important;
+    display: block !important;
+  }
+}
