@@ -118,15 +118,16 @@
   document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.main-swiper', {
       loop: true,
-      speed: 1200, /* 1.2秒かけて右から左へ滑らかにスライド */
+      speed: 1000, /* 1秒かけて右から左へ移動 */
       autoplay: {
-        delay: 3000, /* 3秒ごとに次の画像へ */
+        delay: 3000,
         disableOnInteraction: false,
       },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
+      roundLengths: true, /* 移動時のドット絵ブレ・突き抜け防止 */
     });
   });
 </script>
