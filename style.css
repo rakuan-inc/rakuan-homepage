@@ -287,17 +287,57 @@ a {
   line-height: 2.0;
 }
 
-.about-image-wrap {
-  background-color: #EAEAEA;
-  border-radius: 4px;
-  min-height: 300px;
-  overflow: hidden;
+/* ==========================================
+   ABOUT（会社紹介）セクション：画像高さ＆スマホ最適化
+   ========================================== */
+
+/* ABOUT全体の余白調整 */
+#about,
+.about-section {
+  padding: 50px 20px;
 }
 
-.about-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* PC表示：テキストと画像を横並びにして高さを揃える */
+.about-inner,
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center; /* 縦方向の中央に配置 */
+  gap: 40px;
+}
+
+/* 画像の高さを固定して長くなりすぎるのを防止 */
+.about-image,
+.about-img-wrap,
+#about img,
+.about-section img {
+  max-height: 400px !important; /* PCでの画像の最大高さ */
+  object-fit: cover !important;  /* 枠に合わせて綺麗にトリミング */
+  object-position: center top !important; /* 人物の頭・上半身を中心に表示 */
+  border-radius: 8px; /* 角を少し丸める */
+}
+
+/* スマホ表示（768px以下）：縦並び＆画像をコンパクト化 */
+@media (max-width: 768px) {
+  #about,
+  .about-section {
+    padding: 30px 16px;
+  }
+
+  .about-inner,
+  .about-container {
+    flex-direction: column; /* 縦並びに変更 */
+    gap: 20px;
+  }
+
+  .about-image,
+  .about-img-wrap,
+  #about img,
+  .about-section img {
+    width: 100% !important;
+    max-height: 260px !important; /* スマホで縦長にならない高さ */
+  }
 }
 
 /* Service */
