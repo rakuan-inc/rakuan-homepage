@@ -608,53 +608,52 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 /* ==========================================
-   スライドショー：全消失防止・絶対表示保証CSS
+   スライドショー：1画面に収まるおうち型フレーム
    ========================================== */
 
 .hero-slider-section {
-  width: 100% !important;
-  min-height: 380px !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  margin: 20px 0 !important;
+  width: 100%;
+  padding: 10px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* おうちの形の固定枠（画面内に収まるサイズ） */
 .house-frame {
-  width: 90% !important;
-  max-width: 520px !important;
-  height: 360px !important;
-  margin: 0 auto !important;
-  position: relative !important;
-  background-color: #e0e0e0 !important; /* 万が一画像が遅れても背景枠を表示 */
+  width: 90%;
+  max-width: 500px; /* 横幅をコンパクトに固定 */
+  height: 320px;    /* 高さを固定して1画面に収める */
+  margin: 0 auto;
+  position: relative;
   
-  /* おうち型切り抜き */
-  -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+  /* おうち型（三角屋根）の切り抜き */
+  -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
+  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
 }
 
-.main-swiper,
-.swiper-wrapper,
-.swiper-slide {
+/* 枠内のスライドショー要素を一括フィッティング */
+.house-frame .swiper,
+.house-frame .swiper-wrapper,
+.house-frame .swiper-slide {
   width: 100% !important;
   height: 100% !important;
 }
 
-.swiper-slide img {
+.house-frame .swiper-slide img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  display: block !important;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
 }
 
+/* スマホ用サイズ調整 */
 @media (max-width: 768px) {
-  .hero-slider-section {
-    min-height: 280px !important;
-  }
   .house-frame {
-    height: 260px !important;
-    -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
+    height: 240px;
+    -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
+    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
   }
 }
 /* ==========================================
