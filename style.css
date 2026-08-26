@@ -171,34 +171,47 @@ a {
     height: 220px !important;
   }
 /* ==========================================
-   PC保護 ＆ スマホ表示消滅防止（安全版）
+   PC保護・スマホ描画クラッシュ（白消去）防止
    ========================================== */
-
-/* 768px以下のスマホサイズのみに限定適用 */
 @media screen and (max-width: 768px) {
 
-  /* 1. AOS等のスクロールアニメーションによるスマホ時の初期透明化だけを解除 */
-  [data-aos], 
-  .aos-init, 
-  .fade-in, 
-  .js-fade {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
+  /* 1. iOS Safariでの clip-path 描画クラッシュを防止 */
+  .house-frame,
+  .house-frame-outer,
+  .house-frame-wrapper,
+  .house-frame-content,
+  [class*="house-"] {
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    border-radius: 16px !important; /* スマホのみ安全な角丸に変更 */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
-  /* 2. スマホで画面を覆ってしまうローダー・全画面膜のみ消去 */
+  /* 2. Swiperの描画消滅（一瞬で消える現象）の防止 */
+  .swiper,
+  .swiper-wrapper,
+  .swiper-slide {
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* 3. アニメーション（AOS等）のスマホ非表示バグ回避 */
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* 4. スマホで画面を覆うローディング膜の非表示 */
   #loading, .loading, .loader, .overlay {
     display: none !important;
   }
 
-  /* 3. スマホ時の主要セクションの表示を担保 */
-  main, 
-  section, 
-  .hero-slider-section, 
-  #about, #service, #works, #days, #recruit, #contact {
-    display: block !important;
+  /* 5. 下部コンテンツの表示担保 */
+  main, section, #about, #service, #works, #days, #recruit, #contact {
     opacity: 1 !important;
     visibility: visible !important;
+    display: block !important;
   }
 }
