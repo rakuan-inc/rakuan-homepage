@@ -609,65 +609,7 @@ a {
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
 /* ==========================================
-   スライドショー：1画面に収まるサイズ調整
-   ========================================== */
-
-.hero-slider-section {
-  width: 100%;
-  padding: 10px 20px 20px 20px; /* 上下の余白を詰めて縦幅を削減 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* 画面の高さ（vh）に合わせて可変するおうち型フレーム */
-.main-swiper {
-  width: 100%;
-  max-width: 580px;      /* 横幅をコンパクトに（760px → 580px） */
-  height: 52vh;          /* 画面高さの約52%に指定してスクロールを防止 */
-  max-height: 380px;     /* 高さの上限を380pxに制限（高すぎを防止） */
-  min-height: 260px;     /* 高さの下限を確保 */
-  margin: 0 auto !important;
-  position: relative;
-  
-  /* おうちの形（三角屋根）の切り抜き */
-  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
-  filter: drop-shadow(0 8px 16px rgba(48, 78, 23, 0.12));
-}
-
-.swiper-slide {
-  width: 100% !important;
-  height: 100% !important;
-}
-
-.slide-inner,
-.slide-image-wrap {
-  width: 100%;
-  height: 100%;
-}
-
-.slide-image-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top; /* 職人さんや施工写真の上部優先表示 */
-}
-
-/* スマホ用のサイズ最適化 */
-@media (max-width: 768px) {
-  .hero-slider-section {
-    padding: 10px 16px;
-  }
-  
-  .main-swiper {
-    max-width: 100%;
-    height: 40vh;
-    max-height: 280px;
-    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
-  }
-/* ==========================================
-   スライドショー：おうち型固定フレーム ＋ 右から左へスライド
+   スライドショー：おうち型固定フレーム（SVGマスクで崩れ完全防止）
    ========================================== */
 
 .hero-slider-section {
@@ -679,7 +621,7 @@ a {
   overflow: hidden;
 }
 
-/* 1画面に収まるコンテナサイズ */
+/* 1画面に収まるサイズ ＋ 横移動中も絶対に崩れないSVGマスク設定 */
 .main-swiper {
   width: 100%;
   max-width: 580px;
@@ -688,18 +630,25 @@ a {
   min-height: 260px;
   margin: 0 auto !important;
   position: relative;
-  
-  /* 外枠のおうち型切り抜き（ブラウザ崩れ防止用） */
+
+  /* --- SVGベクトルマスク（スライドアニメーション中も形を100%維持） --- */
+  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,20 100,100 0,100 0,20"/></svg>') !important;
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,20 100,100 0,100 0,20"/></svg>') !important;
+  -webkit-mask-size: 100% 100% !important;
+  mask-size: 100% 100% !important;
+
+  /* clip-pathも併用 */
   -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
   clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+
+  /* レンダリングのチラつき・四角化を防止 */
+  transform: translateZ(0);
+  will-change: transform;
 }
 
-/* スライド各要素にもおうち型切り抜きを強制適用 */
 .main-swiper .swiper-slide {
   width: 100% !important;
   height: 100% !important;
-  -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
   overflow: hidden !important;
 }
 
@@ -718,17 +667,18 @@ a {
   display: block;
 }
 
-/* スマホ用調整 */
+/* スマホ用サイズ最適化 */
 @media (max-width: 768px) {
   .hero-slider-section {
     padding: 10px 16px;
   }
   
-  .main-swiper,
-  .main-swiper .swiper-slide {
+  .main-swiper {
     max-width: 100%;
     height: 40vh;
     max-height: 280px;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,16 100,100 0,100 0,16"/></svg>') !important;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,16 100,100 0,100 0,16"/></svg>') !important;
     -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
     clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
   }
