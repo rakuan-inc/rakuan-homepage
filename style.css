@@ -609,26 +609,45 @@ a {
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
 /* ==========================================
-   スライドショー：おうち型フレーム ＋ 横移動
+   スライドショー：おうち型コンテナ ＋ 移動
    ========================================== */
 
-/* 影をつけるための外枠 */
-.slide-inner {
+/* 1. 最外層コンテナ：全幅、オーバーフロー非表示 */
+.hero-slider-section {
+  width: 100%;
+  padding: 80px 0; /* 高さを調整 */
+  overflow: hidden;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 12px 24px rgba(48, 78, 23, 0.12)); /* おうちの形に合わせた影 */
 }
 
-/* 写真を「おうちの形」に切り抜く設定 */
-.slide-image-wrap {
+/* 2. Swiperコンテナ全体をおうち型にする */
+.main-swiper {
   width: 100%;
-  height: 520px;
+  max-width: 1000px;
+  margin: 0 auto;
   position: relative;
-  overflow: hidden;
-  /* 三角屋根とおうちの壁をつくるポリゴンマスク */
+  
+  /* おうちの形（三角屋根の下の家）のマスク */
   clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  
+  /* おうちの形に合わせた影 */
+  filter: drop-shadow(0 12px 24px rgba(48, 78, 23, 0.12));
+  
+  /* 右から左へ移動するCSSアニメーション */
+  animation: moveHouse 30s linear infinite; /* 30秒かけて横切る */
+  will-change: transform;
+}
+
+/* 3. 個々のスライドのデザインをリセット (マスクや影を削除) */
+.slide-inner {
+  filter: none !important; /* 影を削除 */
+}
+.slide-image-wrap {
+  clip-path: none !important; /* おうち型のマスクを削除 */
+  filter: none !important;
+  border-radius: 0 !important;
+  overflow: visible !important;
+  height: auto !important; /* 高さを自動調整 */
 }
 
 .slide-image-wrap img {
@@ -638,10 +657,21 @@ a {
   object-position: center top;
 }
 
+/* 4. アニメーション定義：右端から左端へ移動 */
+@keyframes moveHouse {
+  0% { transform: translateX(100%); } /* 右端 */
+  100% { transform: translateX(-100%); } /* 左端 */
+}
+
+/* 5. スマホ用設定のリセット */
 @media (max-width: 768px) {
-  .slide-image-wrap {
-    height: 360px; /* スマホ用高さ */
+  .main-swiper {
+    /* おうちの屋根の高さをスマホ用に調整 */
     clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
+  }
+  .slide-image-wrap {
+    height: auto !important;
+    clip-path: none !important;
   }
 }
 /* ==========================================
