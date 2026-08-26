@@ -833,53 +833,91 @@ body {
   z-index: 1 !important;
 }
 /* ==========================================
-   スマホ表示真っ白（描画バグ＆白膜）の究極解除
+   【スマホ真っ白問題の根本解決コード】
    ========================================== */
-@media (max-width: 768px) {
-  /* 1. スマホでの clip-path 描画クラッシュを回避（角丸カードに変更） */
-  .house-frame,
-  .house-frame-outer,
-  .house-frame-inner,
-  .house-frame-content,
-  .house-frame-wrapper {
-    -webkit-clip-path: none !important;
-    clip-path: none !important;
-    border-radius: 16px !important;
-    background: #ffffff !important;
-    height: 260px !important;
-    width: 90% !important;
-    margin: 20px auto !important;
-    overflow: hidden !important;
-  }
-
-  /* 2. ヘッダーのぼかし（Mobile Safariバグ）と全画面被せを解除 */
-  #header, .header {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
+@media screen and (max-width: 768px) {
+  /* 1. ヘッダーが全画面を白く覆うバグを解除し、上部に固定 */
+  header, #header, .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
     height: 70px !important;
     max-height: 70px !important;
-    overflow: hidden !important; /* 子要素が画面を覆うのを防ぐ */
-    background-color: #ffffff !important;
+    overflow: hidden !important; /* 白い枠の画面下部へのはみ出しをカット */
+    background: #ffffff !important;
+    z-index: 9999 !important;
   }
 
-  /* 3. スマホ時にヘッダー内のナビ（白幕の原因になりやすい）を完全に隠す */
-  .header .nav, header .nav {
+  /* 2. ヘッダー内部の文字崩れを防止 */
+  .header-inner {
+    height: 100% !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .logo-main, .logo-en {
+    font-size: 1.2rem !important;
+  }
+  .logo-sub, .logo-ja {
+    font-size: 0.9rem !important;
+  }
+
+  /* 3. 画面全体を覆ってしまうスマホナビを一旦非表示に */
+  .nav, nav {
     display: none !important;
   }
 
-  /* 4. メインコンテンツ全体を確実に画面に描画 */
+  /* 4. メイン領域をヘッダーの下から確実に表示 */
+  body {
+    padding-top: 80px !important;
+    background-color: #FAFAFA !important;
+  }
+
+  /* 5. おうちスライダーの表示領域を固定 */
+  .hero-slider-section {
+    display: block !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  .house-frame,
+  .house-frame-outer,
+  .house-frame-wrapper,
+  .house-frame-content {
+    width: 90% !important;
+    height: 240px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    position: relative !important;
+  }
+
+  .house-frame img,
+  .house-frame-inner img,
+  .house-frame-content img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* 6. スライド下のドット（...）を画像の下に配置 */
+  .swiper-pagination {
+    position: relative !important;
+    bottom: 0 !important;
+    margin-top: 10px !important;
+  }
+
+  /* 7. 下部の全セクションを強制的に全表示 */
   main, section, .section, .container,
-  .hero-slider-section, #about, #service, #works, #days, #recruit, #contact {
+  #about, #service, #works, #days, #recruit, #contact,
+  .about-section, .service-grid, .works-grid, .days-section, .recruit-section, .contact-section {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
-    transform: none !important;
     height: auto !important;
-  }
-
-  /* 5. ページ全体の背景を正しくセット */
-  body {
-    background-color: #FAFAFA !important;
-    padding-top: 80px !important;
+    clear: both !important;
   }
 }
