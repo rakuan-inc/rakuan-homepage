@@ -609,69 +609,65 @@ a {
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
 /* ==========================================
-   スライドショー：おうち型コンテナ ＋ 移動
+   スライドショー：画面内に納まるおうち型フレーム
    ========================================== */
 
-/* 1. 最外層コンテナ：全幅、オーバーフロー非表示 */
 .hero-slider-section {
   width: 100%;
-  padding: 80px 0; /* 高さを調整 */
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  position: relative;
 }
 
-/* 2. Swiperコンテナ全体をおうち型にする */
+/* 画面の中に納まるサイズのおうち型フレーム */
 .main-swiper {
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 760px; /* 画面内に収まる適切な最大幅 */
+  height: 460px;    /* 適切な高さ */
+  margin: 0 auto !important;
   position: relative;
   
-  /* おうちの形（三角屋根の下の家）のマスク */
-  clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  /* おうちの形（三角屋根）の切り抜き */
+  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
   
-  /* おうちの形に合わせた影 */
-  filter: drop-shadow(0 12px 24px rgba(48, 78, 23, 0.12));
+  /* 影と角丸の微調整 */
+  filter: drop-shadow(0 10px 20px rgba(48, 78, 23, 0.15));
   
-  /* 右から左へ移動するCSSアニメーション */
-  animation: moveHouse 30s linear infinite; /* 30秒かけて横切る */
-  will-change: transform;
+  /* コンテナ自体の巨大な画面移動アニメーションを消去（空白の原因解消） */
+  animation: none !important;
+  transform: none !important;
 }
 
-/* 3. 個々のスライドのデザインをリセット (マスクや影を削除) */
-.slide-inner {
-  filter: none !important; /* 影を削除 */
+.swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
 }
+
+.slide-inner,
 .slide-image-wrap {
-  clip-path: none !important; /* おうち型のマスクを削除 */
-  filter: none !important;
-  border-radius: 0 !important;
-  overflow: visible !important;
-  height: auto !important; /* 高さを自動調整 */
+  width: 100%;
+  height: 100%;
 }
 
 .slide-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center top; /* 写真の上部を優先してきれいに収める */
 }
 
-/* 4. アニメーション定義：右端から左端へ移動 */
-@keyframes moveHouse {
-  0% { transform: translateX(100%); } /* 右端 */
-  100% { transform: translateX(-100%); } /* 左端 */
-}
-
-/* 5. スマホ用設定のリセット */
+/* スマホ・タブレット用サイズ自動調整 */
 @media (max-width: 768px) {
-  .main-swiper {
-    /* おうちの屋根の高さをスマホ用に調整 */
-    clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
+  .hero-slider-section {
+    padding: 20px 16px;
   }
-  .slide-image-wrap {
-    height: auto !important;
-    clip-path: none !important;
+  
+  .main-swiper {
+    max-width: 100%;
+    height: 320px;
+    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
   }
 }
 /* ==========================================
