@@ -607,21 +607,20 @@ a {
   .nav { display: none; }
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
-}
 /* ==========================================
-   スライドショー：おうち型固定フレーム（SVGマスクで崩れ完全防止）
+   スライドショー：3D突き抜けバグ完全対策済みおうち型フレーム
    ========================================== */
 
 .hero-slider-section {
   width: 100%;
-  padding: 10px 20px 20px 20px;
+  padding: 15px 20px 25px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* 1画面に収まるサイズ ＋ 横移動中も絶対に崩れないSVGマスク設定 */
+/* 1画面に収まるサイズ ＋ 突き抜けバグ完全防止 */
 .main-swiper {
   width: 100%;
   max-width: 580px;
@@ -631,18 +630,20 @@ a {
   margin: 0 auto !important;
   position: relative;
 
-  /* --- SVGベクトルマスク（スライドアニメーション中も形を100%維持） --- */
-  -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,20 100,100 0,100 0,20"/></svg>') !important;
-  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,20 100,100 0,100 0,20"/></svg>') !important;
-  -webkit-mask-size: 100% 100% !important;
-  mask-size: 100% 100% !important;
+  /* SVG clipPathによるおうち型切り抜き */
+  clip-path: url(#houseClip) !important;
+  -webkit-clip-path: url(#houseClip) !important;
 
-  /* clip-pathも併用 */
-  -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+  /* 【重要】3D移動中の画像が枠を突き破るブラウザバグをブロック */
+  isolation: isolate !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
+  transform: translate3d(0, 0, 0) !important;
+}
 
-  /* レンダリングのチラつき・四角化を防止 */
-  transform: translateZ(0);
+/* Swiper内部要素の3D層をフラット化 */
+.main-swiper .swiper-wrapper {
+  transform-style: flat !important;
   will-change: transform;
 }
 
@@ -650,6 +651,8 @@ a {
   width: 100% !important;
   height: 100% !important;
   overflow: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  backface-visibility: hidden !important;
 }
 
 .slide-inner,
@@ -677,10 +680,6 @@ a {
     max-width: 100%;
     height: 40vh;
     max-height: 280px;
-    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,16 100,100 0,100 0,16"/></svg>') !important;
-    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="50,0 100,16 100,100 0,100 0,16"/></svg>') !important;
-    -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
   }
 }
 /* ==========================================
