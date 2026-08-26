@@ -816,9 +816,10 @@ a {
     }
 
 }
-/* ========================================
-   RAKUAN MOBILE DISPLAY FIX - FINAL
-   ======================================== */
+/* =========================================================
+   RAKUAN - MOBILE FINAL FIX
+   スマホで一瞬表示されて消える問題を完全に防止
+========================================================= */
 
 @media screen and (max-width: 768px) {
 
@@ -826,278 +827,293 @@ a {
   body {
     width: 100%;
     min-height: 100%;
+    height: auto;
     overflow-x: hidden;
+    overflow-y: auto;
     background: #FAFAFA !important;
-  }
-
-  body {
     color: #304e17 !important;
   }
 
-  /* メイン全体を必ず表示 */
-  main {
-    display: block !important;
-    width: 100% !important;
-    min-height: 100vh !important;
-    opacity: 1 !important;
+  /* ページ全体を常に表示 */
+  body,
+  main,
+  header,
+  footer,
+  section,
+  div,
+  article,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  span,
+  a,
+  li {
     visibility: visible !important;
-    transform: none !important;
   }
 
-  /* 各セクションを強制表示 */
-  main section,
-  #about,
-  #service,
-  #works,
-  #days,
-  #recruit,
-  #contact,
-  .section,
-  .about-section,
-  .service-section,
-  .works-section,
-  .days-section,
-  .recruit-section,
-  .contact-section {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none !important;
+  /* JSアニメーションによる消失を完全無効化 */
+  *,
+  *::before,
+  *::after {
     animation: none !important;
+    transition: none !important;
   }
 
-  /* JavaScriptのスクロールアニメーション対策 */
+  /* opacity で消されるのを防ぐ */
   .fade-in,
   .fade-up,
+  .fade-down,
   .fade-left,
   .fade-right,
   .reveal,
   .scroll-animation,
   .animate,
-  .animated,
   [data-aos],
-  [data-animation],
-  [data-scroll] {
+  [data-scroll],
+  [data-animation] {
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
-    animation: none !important;
   }
 
-  /* セクション内の文字を表示 */
-  main h1,
-  main h2,
-  main h3,
-  main h4,
-  main p,
-  main li,
-  main a,
-  main span {
+  /* =====================================================
+     HEADER
+  ===================================================== */
+
+  .header {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100% !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    background: #FAFAFA !important;
+    box-shadow: none !important;
+    padding: 20px 16px !important;
+  }
+
+  .header-inner {
+    width: 100% !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .logo {
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
 
-  /* 文字色 */
-  main h1,
-  main h2,
-  main h3,
-  main h4 {
-    color: #304e17 !important;
+  .logo a {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
   }
 
-  main p,
-  main li {
+  .logo-en {
+    display: block !important;
+    color: #304e17 !important;
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .logo-ja {
+    display: block !important;
     color: #546b41 !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
   }
 
-  /* ========================================
-     HERO
-     ======================================== */
+  /* スマホではPCナビを非表示 */
+  .nav {
+    display: none !important;
+  }
 
-  .hero {
+  /* =====================================================
+     HERO
+  ===================================================== */
+
+  .hero-slider-section {
+    display: block !important;
     width: 100% !important;
-    min-height: 400px !important;
+    min-height: 300px !important;
     height: auto !important;
-    display: flex !important;
+    padding: 20px 0 40px !important;
     visibility: visible !important;
     opacity: 1 !important;
   }
 
-  .hero-content {
+  .house-frame-wrapper {
+    display: block !important;
+    width: calc(100% - 32px) !important;
+    max-width: none !important;
+    height: 300px !important;
+    margin: 0 auto !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .house-frame-content {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .main-swiper {
+    width: 100% !important;
+    height: 100% !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .swiper-wrapper,
+  .swiper-slide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .swiper-slide {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .house-frame-content img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  /* =====================================================
+     SECTIONS
+  ===================================================== */
+
+  .section,
+  #about,
+  #service,
+  #works,
+  #days,
+  #recruit,
+  #contact {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
     visibility: visible !important;
     opacity: 1 !important;
     transform: none !important;
-    z-index: 5 !important;
   }
 
-  .hero-copy {
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .section-subtitle,
+  .section-title,
+  .section-desc,
+  .lead-text,
+  .description,
+  .service-name,
+  .service-desc,
+  .comic-title,
+  .comic-excerpt,
+  .contact-intro,
+  .contact-intro p {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
     color: #304e17 !important;
   }
 
-  /* ========================================
+  /* =====================================================
      ABOUT
-     ======================================== */
+  ===================================================== */
 
-  #about,
-  .about-section {
-    width: 100% !important;
-    padding: 70px 20px !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .about-inner,
-  .about-container,
   .about-grid {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
-    max-width: 100% !important;
-    gap: 35px !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none !important;
+    gap: 30px !important;
   }
 
-  .lead-text,
-  .description {
-    color: #304e17 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
-  .description {
-    color: #546b41 !important;
-  }
-
-  .about-image,
-  .about-img-wrap,
-  .about-image-wrap,
-  #about img,
-  .about-section img {
+  .about-text,
+  .about-image-wrap {
+    width: 100% !important;
     display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .about-image-wrap img {
     width: 100% !important;
     max-width: 100% !important;
     height: auto !important;
     max-height: none !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    transform: none !important;
+    object-fit: contain !important;
   }
 
-  /* ========================================
-     SERVICE
-     ======================================== */
+  /* =====================================================
+     SERVICE / WORKS / DAYS
+  ===================================================== */
 
-  .service-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 25px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .service-card {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  /* ========================================
-     WORKS
-     ======================================== */
-
-  .works-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 25px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .works-item {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  /* ========================================
-     RAKUAN DAYS
-     ======================================== */
-
-  .comic-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 25px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  .comic-card {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-  }
-
-  /* ========================================
-     RECRUIT
-     ======================================== */
-
-  .recruit-section {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
+  .service-grid,
+  .works-grid,
+  .comic-grid,
   .recruit-grid {
     display: flex !important;
     flex-direction: column !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    width: 100% !important;
+    gap: 24px !important;
   }
 
+  .service-card,
+  .works-item,
+  .comic-card,
   .recruit-info-box,
   .recruit-poster-wrap {
-    opacity: 1 !important;
+    width: 100% !important;
+    display: block !important;
     visibility: visible !important;
+    opacity: 1 !important;
     transform: none !important;
   }
 
-  /* ========================================
+  /* =====================================================
      CONTACT
-     ======================================== */
+  ===================================================== */
 
   .contact-section {
     display: block !important;
-    opacity: 1 !important;
     visibility: visible !important;
+    opacity: 1 !important;
   }
 
   .contact-box {
-    opacity: 1 !important;
+    width: 100% !important;
+    padding: 30px 16px !important;
+    display: block !important;
     visibility: visible !important;
-    transform: none !important;
+    opacity: 1 !important;
   }
 
-  /* ========================================
+  /* =====================================================
      FOOTER
-     ======================================== */
+  ===================================================== */
 
-  #footer,
   .footer {
     display: block !important;
-    opacity: 1 !important;
     visibility: visible !important;
-  }
-
-  /* ========================================
-     スマホでは固定ヘッダーの下から開始
-     ======================================== */
-
-  main {
-    padding-top: 0 !important;
+    opacity: 1 !important;
   }
 
 }
