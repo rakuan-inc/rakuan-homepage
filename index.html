@@ -21,8 +21,11 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.ico">
 </head>
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
+<!-- Swiper CSS / JS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
     if (typeof Swiper !== 'undefined') {
       new Swiper('.main-swiper', {
         loop: true,
@@ -39,37 +42,55 @@
     }
   });
 </script>
-<body>
-<!-- Swiperライブラリ（これらがないと表示されません） -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <body>
 
 <!-- キャッシュ更新用 CSS -->
 <link rel="stylesheet" href="style.css?v=30">
   <!-- ヘッダー -->
-  <header id="header">
-    <div class="header-inner">
-      <a href="#" class="logo">
-        <span class="logo-main">RAKUAN</span>
-        <span class="logo-sub">株式会社楽安</span>
-      </a>
-      <nav class="nav">
-        <ul>
-          <nav class="nav">
-      <ul>
-        <li><a href="#about"><span class="nav-main">ABOUT</span><span class="nav-sub">楽安について</span></a></li>
-        <li><a href="#service"><span class="nav-main">SERVICE</span><span class="nav-sub">事業内容</span></a></li>
-        <li><a href="#works"><span class="nav-main">WORKS</span><span class="nav-sub">施工実績</span></a></li>
-        <li><a href="#days"><span class="nav-main">RAKUAN DAYS</span><span class="nav-sub">楽安の日々</span></a></li>
-        <li><a href="#recruit"><span class="nav-main">RECRUIT</span><span class="nav-sub">採用情報</span></a></li>
-        <li><a href="#contact"><span class="nav-main">CONTACT</span><span class="nav-sub">お問い合わせ</span></a></li>
-      </ul>
-    </nav>
-        </ul>
-      </nav>
-    </div>
-  </header>
-<!-- メインビジュアル：おうち型スライドショー -->
+<!-- スライドショー専用スタイル（style.cssのバグを完全迂回） -->
+<style>
+  .hero-slider-section {
+    width: 100% !important;
+    padding: 10px 0 20px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .house-frame {
+    width: 90% !important;
+    max-width: 500px !important;
+    height: 320px !important;
+    margin: 0 auto !important;
+    position: relative !important;
+    /* おうち型切り抜き */
+    -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+    clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+    overflow: hidden !important;
+    background-color: #f0f0f0; /* 万が一画像が遅れても枠を表示 */
+  }
+  .house-frame .swiper,
+  .house-frame .swiper-wrapper,
+  .house-frame .swiper-slide {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .house-frame img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+  }
+  @media (max-width: 768px) {
+    .house-frame {
+      height: 240px !important;
+      -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
+      clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
+    }
+  }
+</style>
+
+<!-- メインビジュアル本体 -->
 <section class="hero-slider-section">
   <div class="house-frame">
     <div class="swiper main-swiper">
