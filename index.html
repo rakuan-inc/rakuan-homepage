@@ -31,7 +31,7 @@
 </head>
 <body>
 
-  <!-- 1. ヘッダー（メニューバー） -->
+ <!-- 1. ヘッダー（元のレイアウトに復元） -->
   <header class="header">
     <div class="header-inner">
       <h1 class="logo">
@@ -53,105 +53,7 @@
     </div>
   </header>
 
-  <!-- 2. おうち型スライドショー用スタイル ＆ 本体 -->
-  <style>
-    .hero-slider-section {
-      width: 100% !important;
-      padding: 10px 0 20px 0 !important;
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-    .house-frame {
-      width: 90% !important;
-      max-width: 500px !important;
-      height: 320px !important;
-      margin: 0 auto !important;
-      position: relative !important;
-      -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-      clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-      overflow: hidden !important;
-      background-color: #f0f0f0;
-    }
-    .house-frame .swiper,
-    .house-frame .swiper-wrapper,
-    .house-frame .swiper-slide {
-      width: 100% !important;
-      height: 100% !important;
-    }
-    .house-frame img {
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;
-      object-position: center top !important;
-      display: block !important;
-    }
-    @media (max-width: 768px) {
-      .house-frame {
-        height: 240px !important;
-        -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-        clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-      }
-    }
-    /* ==========================================
-   スマホ画面（768px以下）表示くずれ完全防止
-   ========================================== */
-@media (max-width: 768px) {
-  /* 1. ヘッダー全体をコンパクトに整理 */
-  .header-inner {
-    flex-direction: column !important;
-    align-items: center !important;
-    padding: 8px 12px !important;
-    gap: 8px !important;
-  }
-
-  /* 2. ロゴサイズの微調整 */
-  .logo-en {
-    font-size: 1.3rem !important;
-  }
-  .logo-ja {
-    font-size: 0.75rem !important;
-  }
-
-  /* 3. ナビゲーションメニューの重なり防止 */
-  .nav ul {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 6px 10px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
-  .nav a {
-    font-size: 0.75rem !important;
-    padding: 3px 6px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-
-  /* スマホでは補足テキストを隠して1行で収める場合 */
-  .nav-ja {
-    font-size: 0.65rem !important;
-    opacity: 0.8;
-  }
-
-  /* 4. おうち型フレームのスマホ画面フィッティング */
-  .hero-slider-section {
-    padding: 10px 0 !important;
-    margin: 10px 0 20px 0 !important;
-  }
-
-  .house-frame {
-    width: 92% !important;
-    height: 210px !important; /* スマホ画面でスクロール不要な高さ */
-    -webkit-clip-path: polygon(50% 0%, 100% 14%, 100% 100%, 0% 100%, 0% 14%) !important;
-    clip-path: polygon(50% 0%, 100% 14%, 100% 100%, 0% 100%, 0% 14%) !important;
-  }
-}
-  </style>
-
+  <!-- 2. おうち型スライドショー -->
   <section class="hero-slider-section">
     <div class="house-frame">
       <div class="swiper main-swiper">
@@ -164,6 +66,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- 3. ここから既存の ABOUT セクションにつながります -->
   <!-- ABOUT -->
