@@ -27,31 +27,11 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- キャッシュ更新用 CSS -->
-  <link rel="stylesheet" href="style.css?v=33">
+  <link rel="stylesheet" href="style.css?v=35">
 </head>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('.main-swiper', {
-          loop: true,
-          speed: 1200, /* 滑らかな移動速度 */
-          autoplay: {
-            delay: 4500, /* 4.5秒ごとにゆっくり切り替え */
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-        });
-      }
-    });
-  </script>
-</body>
-</html>
 <body>
 
-<!-- ヘッダー（元のレイアウト） -->
+  <!-- ヘッダー -->
   <header class="header">
     <div class="header-inner">
       <h1 class="logo">
@@ -87,6 +67,29 @@
     </div>
   </section>
 
+  <!-- ここに ABOUT などの既存コンテンツが入ります -->
+
+  <!-- スライドショー起動スクリプト（必ず </body> の直前に配置） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.main-swiper', {
+          loop: true,
+          speed: 1200,
+          autoplay: {
+            delay: 4500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+      }
+    });
+  </script>
+</body>
+</html>
   <!-- 3. ここから既存の ABOUT セクションにつながります -->
   <!-- ABOUT -->
   <section id="about" class="section about-section">
