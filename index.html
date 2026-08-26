@@ -111,8 +111,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.main-swiper', {
       loop: true,
-      effect: 'fade', /* ふんわり切り替わるフェード効果 */
-      fadeEffect: { crossFade: true },
+      speed: 1000, /* 1秒かけて滑らかに右から左へ移動 */
       autoplay: {
         delay: 4000,
         disableOnInteraction: false,
