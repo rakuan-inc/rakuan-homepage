@@ -608,78 +608,65 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 /* ==========================================
-   スライドショー：3D突き抜けバグ完全対策済みおうち型フレーム
+   スライドショー：サイズ固定 ＋ おうち型フレーム
    ========================================== */
 
+/* 全体エリア（画面からはみ出さないようガード） */
 .hero-slider-section {
   width: 100%;
-  padding: 15px 20px 25px 20px;
+  max-width: 100%;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* 1画面に収まるサイズ ＋ 突き抜けバグ完全防止 */
-.main-swiper {
-  width: 100%;
-  max-width: 580px;
-  height: 52vh;
-  max-height: 380px;
-  min-height: 260px;
-  margin: 0 auto !important;
+/* おうち型固定枠（画像サイズと縦横幅を絶対固定） */
+.house-frame {
+  width: 90%;
+  max-width: 480px; /* 横幅を画面に収まるサイズに固定 */
+  height: 320px;    /* 高さを固定してスクロールを完全防止 */
+  margin: 0 auto;
   position: relative;
-
-  /* SVG clipPathによるおうち型切り抜き */
-  clip-path: url(#houseClip) !important;
-  -webkit-clip-path: url(#houseClip) !important;
-
-  /* 【重要】3D移動中の画像が枠を突き破るブラウザバグをブロック */
-  isolation: isolate !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
-  transform: translate3d(0, 0, 0) !important;
+  
+  /* おうちの形（三角屋根）切り抜き */
+  clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  -webkit-clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  overflow: hidden !important;
 }
 
-/* Swiper内部要素の3D層をフラット化 */
-.main-swiper .swiper-wrapper {
-  transform-style: flat !important;
-  will-change: transform;
-}
-
-.main-swiper .swiper-slide {
+/* 内側のスライドショー（固定枠の中だけで動く） */
+.house-frame .main-swiper {
   width: 100% !important;
   height: 100% !important;
-  overflow: hidden !important;
-  -webkit-backface-visibility: hidden !important;
-  backface-visibility: hidden !important;
 }
 
-.slide-inner,
-.slide-image-wrap {
+.house-frame .swiper-slide {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.house-frame .slide-inner,
+.house-frame .slide-image-wrap {
   width: 100%;
   height: 100%;
-  position: relative;
 }
 
-.slide-image-wrap img {
+.house-frame .slide-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  display: block;
 }
 
-/* スマホ用サイズ最適化 */
+/* スマホ用のサイズ自動調整 */
 @media (max-width: 768px) {
-  .hero-slider-section {
-    padding: 10px 16px;
-  }
-  
-  .main-swiper {
-    max-width: 100%;
-    height: 40vh;
-    max-height: 280px;
+  .house-frame {
+    max-width: 92%;
+    height: 250px;
+    clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
+    -webkit-clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
   }
 }
 /* ==========================================
