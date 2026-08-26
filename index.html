@@ -51,69 +51,25 @@
       </nav>
     </div>
   </header>
-<!-- おうち型切り抜き用定義（画面には表示されません） -->
-<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
-  <defs>
-    <clipPath id="houseClip" clipPathUnits="objectBoundingBox">
-      <polygon points="0.5 0, 1 0.2, 1 1, 0 1, 0 0.2" />
-    </clipPath>
-  </defs>
-</svg>
 <!-- スライドショーセクション -->
 <section class="hero-slider-section">
-  <!-- 動かない固定のおうち枠 -->
   <div class="house-frame">
     <div class="swiper main-swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <div class="slide-inner">
-            <div class="slide-image-wrap">
-              <img src="images/hero1.jpg" alt="施工風景1">
-            </div>
-          </div>
+          <img src="images/hero1.jpg" alt="施工風景1">
         </div>
         <div class="swiper-slide">
-          <div class="slide-inner">
-            <div class="slide-image-wrap">
-              <img src="images/hero2.jpg" alt="施工風景2">
-            </div>
-          </div>
+          <img src="images/hero2.jpg" alt="施工風景2">
         </div>
         <div class="swiper-slide">
-          <div class="slide-inner">
-            <div class="slide-image-wrap">
-              <img src="images/hero3.jpg" alt="施工風景3">
-            </div>
-          </div>
+          <img src="images/hero3.jpg" alt="施工風景3">
         </div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
-    <!-- ページネーション（横線の指示マーク） -->
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
-<!-- スライドショーの動的設定脚本 -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const swiper = new Swiper('.main-swiper', {
-      loop: true,
-      speed: 1000, /* 1秒かけて右から左へ移動 */
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      roundLengths: true, /* 移動時のドット絵ブレ・突き抜け防止 */
-    });
-  });
-</script>
   <!-- ABOUT -->
   <section id="about" class="section about-section">
     <div class="container">
@@ -312,3 +268,19 @@
   <script src="script.js"></script>
 </body>
 </html>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    new Swiper('.main-swiper', {
+      loop: true,
+      speed: 1000,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  });
+</script>
