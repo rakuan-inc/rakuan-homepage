@@ -609,35 +609,31 @@ a {
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
 /* ==========================================
-   スライドショー：画面内に納まるおうち型フレーム
+   スライドショー：1画面に収まるサイズ調整
    ========================================== */
 
 .hero-slider-section {
   width: 100%;
-  padding: 40px 20px;
+  padding: 10px 20px 20px 20px; /* 上下の余白を詰めて縦幅を削減 */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-/* 画面の中に納まるサイズのおうち型フレーム */
+/* 画面の高さ（vh）に合わせて可変するおうち型フレーム */
 .main-swiper {
   width: 100%;
-  max-width: 760px; /* 画面内に収まる適切な最大幅 */
-  height: 460px;    /* 適切な高さ */
+  max-width: 580px;      /* 横幅をコンパクトに（760px → 580px） */
+  height: 52vh;          /* 画面高さの約52%に指定してスクロールを防止 */
+  max-height: 380px;     /* 高さの上限を380pxに制限（高すぎを防止） */
+  min-height: 260px;     /* 高さの下限を確保 */
   margin: 0 auto !important;
   position: relative;
   
   /* おうちの形（三角屋根）の切り抜き */
   clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
-  
-  /* 影と角丸の微調整 */
-  filter: drop-shadow(0 10px 20px rgba(48, 78, 23, 0.15));
-  
-  /* コンテナ自体の巨大な画面移動アニメーションを消去（空白の原因解消） */
-  animation: none !important;
-  transform: none !important;
+  filter: drop-shadow(0 8px 16px rgba(48, 78, 23, 0.12));
 }
 
 .swiper-slide {
@@ -655,21 +651,22 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* 写真の上部を優先してきれいに収める */
+  object-position: center top; /* 職人さんや施工写真の上部優先表示 */
 }
 
-/* スマホ・タブレット用サイズ自動調整 */
+/* スマホ用のサイズ最適化 */
 @media (max-width: 768px) {
   .hero-slider-section {
-    padding: 20px 16px;
+    padding: 10px 16px;
   }
   
   .main-swiper {
     max-width: 100%;
-    height: 320px;
+    height: 40vh;
+    max-height: 280px;
     clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
   }
-}
+
 /* ==========================================
    RECRUIT：安心バッジ ＋ 立体ボタン (強効化)
    ========================================== */
