@@ -779,3 +779,56 @@ a {
     width: 100% !important;
   }
 }
+/* ==========================================
+   緊急表示修正（高さの強制確保 & 表示復元）
+   ========================================== */
+
+/* 1. ヘッダー下の余白確保と全体表示 */
+body {
+  padding-top: 100px !important;
+}
+
+/* 2. おうち型スライダーの高さ強制固定 */
+.hero-slider-section {
+  width: 100% !important;
+  min-height: 450px !important;
+  display: block !important;
+  position: relative !important;
+  margin-bottom: 60px !important;
+}
+
+.house-frame,
+.house-frame-outer,
+.house-frame-wrapper,
+.house-frame-content {
+  height: 400px !important; /* 高さを確実に指定 */
+  position: relative !important;
+  display: block !important;
+  overflow: hidden !important;
+}
+
+.house-frame img,
+.house-frame-inner img,
+.house-frame-content img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* 3. 浮遊してしまったSwiperドットの位置をスライダー内に固定 */
+.swiper-pagination {
+  position: absolute !important;
+  bottom: 15px !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 20 !important;
+}
+
+/* 4. 下部セクションの強制表示 */
+.section, #about, #service, #works, #days, #recruit, #contact {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
