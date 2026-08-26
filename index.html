@@ -52,45 +52,21 @@
       </nav>
     </div>
   </header>
-
-  <!-- おうち型スライドショー -->
-  <section class="hero-slider-section">
-    <div class="house-frame">
-      <div class="swiper main-swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><img src="images/hero1.jpg" alt="施工風景1"></div>
-          <div class="swiper-slide"><img src="images/hero2.jpg" alt="施工風景2"></div>
-          <div class="swiper-slide"><img src="images/hero3.jpg" alt="施工風景3"></div>
+       <section class="hero-slider-section">
+      <div class="house-frame-outer">
+        <div class="house-frame-inner">
+          <div class="swiper main-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="images/hero1.jpg" alt="施工風景1"></div>
+              <div class="swiper-slide"><img src="images/hero2.jpg" alt="施工風景2"></div>
+              <div class="swiper-slide"><img src="images/hero3.jpg" alt="施工風景3"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
         </div>
-        <div class="swiper-pagination"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ここに ABOUT などの既存コンテンツが入ります -->
-
-  <!-- スライドショー起動スクリプト（必ず </body> の直前に配置） -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (typeof Swiper !== 'undefined') {
-        new Swiper('.main-swiper', {
-          loop: true,
-          speed: 1200,
-          autoplay: {
-            delay: 4500,
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-        });
-      }
-    });
-  </script>
-</body>
-</html>
-  <!-- 3. ここから既存の ABOUT セクションにつながります -->
+    </section>
+  
   <!-- ABOUT -->
   <section id="about" class="section about-section">
     <div class="container">
