@@ -608,107 +608,41 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 }
-/* ==========================================================================
-   スライドショー (Yokota Nojo Style)
-   ========================================================================== */
+/* ==========================================
+   スライドショー：おうち型フレーム ＋ 横移動
+   ========================================== */
 
-.hero-slider-section {
-  padding: 120px 0 60px;
-  background-color: var(--bg-color);
-  overflow: hidden;
-}
-
-.main-swiper {
-  max-width: 1000px;
-  width: 92%;
-  margin: 0 auto;
-  padding-bottom: 50px !important;
-}
-
+/* 影をつけるための外枠 */
 .slide-inner {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-/* 写真フレームの高さと角丸の調整 */
-.slide-image-wrap {
-  width: 100%;
-  height: 520px; /* 高さを広げて写真の表示範囲を拡大 */
-  border-radius: 80px; /* 切断を抑えつつ丸みを残す上品な角丸に変更 */
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 12px 32px rgba(48, 78, 23, 0.08);
+  filter: drop-shadow(0 12px 24px rgba(48, 78, 23, 0.12)); /* おうちの形に合わせた影 */
 }
 
-/* 画像表示位置を「上端中央」に指定（頭切れを防止） */
+/* 写真を「おうちの形」に切り抜く設定 */
+.slide-image-wrap {
+  width: 100%;
+  height: 520px;
+  position: relative;
+  overflow: hidden;
+  /* 三角屋根とおうちの壁をつくるポリゴンマスク */
+  clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+}
+
 .slide-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top; /* 写真の上部を優先して表示 */
-}
-/* 文字を読みやすくするための暗めオーバーレイ */
-.slide-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.25);
-}
-
-/* 写真中央のテキスト */
-.slide-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #FFFFFF !important;
-  width: 85%;
-  z-index: 2;
-}
-
-.slide-title {
-  font-size: 2.0rem;
-  font-weight: 700;
-  color: #FFFFFF !important;
-  margin-bottom: 12px;
-  letter-spacing: 0.1em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-.slide-desc {
-  font-size: 1.1rem;
-  color: #FFFFFF !important;
-  letter-spacing: 0.08em;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-
-/* 下部インジケーター（参考サイト風の横長バー） */
-.swiper-pagination-bullet {
-  width: 28px !important;
-  height: 5px !important;
-  border-radius: 3px !important;
-  background: #A8BBA2 !important;
-  opacity: 0.5;
-  transition: all 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-  width: 48px !important;
-  background: var(--text-main) !important; /* ダークモスグリーン */
-  opacity: 1;
+  object-position: center top;
 }
 
 @media (max-width: 768px) {
   .slide-image-wrap {
-    height: 320px;
-    border-radius: 30px; /* スマホでは角丸カードに変更 */
+    height: 360px; /* スマホ用高さ */
+    clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
   }
-  .slide-title { font-size: 1.3rem; }
-  .slide-desc { font-size: 0.9rem; }
 }
 /* ==========================================
    RECRUIT：安心バッジ ＋ 立体ボタン (強効化)
