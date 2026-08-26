@@ -21,88 +21,122 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.ico">
 </head>
-<!-- Swiper CSS / JS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  window.addEventListener('DOMContentLoaded', function () {
-    if (typeof Swiper !== 'undefined') {
-      new Swiper('.main-swiper', {
-        loop: true,
-        speed: 1000,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-      });
-    }
-  });
-</script>
-  <body>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社楽安</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.ico">
+  
+  <!-- Swiper CSS / JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- キャッシュ更新用 CSS -->
-<link rel="stylesheet" href="style.css?v=30">
-  <!-- ヘッダー -->
-<!-- スライドショー専用スタイル（style.cssのバグを完全迂回） -->
-<style>
-  .hero-slider-section {
-    width: 100% !important;
-    padding: 10px 0 20px 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  .house-frame {
-    width: 90% !important;
-    max-width: 500px !important;
-    height: 320px !important;
-    margin: 0 auto !important;
-    position: relative !important;
-    /* おうち型切り抜き */
-    -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-    clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
-    overflow: hidden !important;
-    background-color: #f0f0f0; /* 万が一画像が遅れても枠を表示 */
-  }
-  .house-frame .swiper,
-  .house-frame .swiper-wrapper,
-  .house-frame .swiper-slide {
-    width: 100% !important;
-    height: 100% !important;
-  }
-  .house-frame img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center top !important;
-    display: block !important;
-  }
-  @media (max-width: 768px) {
-    .house-frame {
-      height: 240px !important;
-      -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-      clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
-    }
-  }
-</style>
+  <!-- キャッシュ更新用 CSS -->
+  <link rel="stylesheet" href="style.css?v=32">
+</head>
+  <script>
+    window.addEventListener('load', function () {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.main-swiper', {
+          loop: true,
+          speed: 1000,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+<body>
 
-<!-- メインビジュアル本体 -->
-<section class="hero-slider-section">
-  <div class="house-frame">
-    <div class="swiper main-swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/hero1.jpg" alt="施工風景1"></div>
-        <div class="swiper-slide"><img src="images/hero2.jpg" alt="施工風景2"></div>
-        <div class="swiper-slide"><img src="images/hero3.jpg" alt="施工風景3"></div>
-      </div>
-      <div class="swiper-pagination"></div>
+  <!-- 1. ヘッダー（復元したメニューバー） -->
+  <header class="header">
+    <div class="header-inner">
+      <h1 class="logo">
+        <a href="#">
+          <span class="logo-en">RAKUAN</span>
+          <span class="logo-ja">株式会社楽安</span>
+        </a>
+      </h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="#about"><span class="nav-en">ABOUT</span><span class="nav-ja">楽安について</span></a></li>
+          <li><a href="#service"><span class="nav-en">SERVICE</span><span class="nav-ja">事業内容</span></a></li>
+          <li><a href="#works"><span class="nav-en">WORKS</span><span class="nav-ja">施工実績</span></a></li>
+          <li><a href="#days"><span class="nav-en">RAKUAN DAYS</span><span class="nav-ja">楽安の日々</span></a></li>
+          <li><a href="#recruit"><span class="nav-en">RECRUIT</span><span class="nav-ja">採用情報</span></a></li>
+          <li><a href="#contact"><span class="nav-en">CONTACT</span><span class="nav-ja">お問い合わせ</span></a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </header>
+
+  <!-- 2. おうち型スライドショー用スタイル ＆ 本体 -->
+  <style>
+    .hero-slider-section {
+      width: 100% !important;
+      padding: 10px 0 20px 0 !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+    .house-frame {
+      width: 90% !important;
+      max-width: 500px !important;
+      height: 320px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+      clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%) !important;
+      overflow: hidden !important;
+      background-color: #f0f0f0;
+    }
+    .house-frame .swiper,
+    .house-frame .swiper-wrapper,
+    .house-frame .swiper-slide {
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .house-frame img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center top !important;
+      display: block !important;
+    }
+    @media (max-width: 768px) {
+      .house-frame {
+        height: 240px !important;
+        -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
+        clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
+      }
+    }
+  </style>
+
+  <section class="hero-slider-section">
+    <div class="house-frame">
+      <div class="swiper main-swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img src="images/hero1.jpg" alt="施工風景1"></div>
+          <div class="swiper-slide"><img src="images/hero2.jpg" alt="施工風景2"></div>
+          <div class="swiper-slide"><img src="images/hero3.jpg" alt="施工風景3"></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ここから既存の ABOUT セクションにつながります -->
   <!-- ABOUT -->
   <section id="about" class="section about-section">
     <div class="container">
