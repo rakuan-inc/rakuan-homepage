@@ -93,6 +93,63 @@
         clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%) !important;
       }
     }
+    /* ==========================================
+   スマホ画面（768px以下）表示くずれ完全防止
+   ========================================== */
+@media (max-width: 768px) {
+  /* 1. ヘッダー全体をコンパクトに整理 */
+  .header-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+
+  /* 2. ロゴサイズの微調整 */
+  .logo-en {
+    font-size: 1.3rem !important;
+  }
+  .logo-ja {
+    font-size: 0.75rem !important;
+  }
+
+  /* 3. ナビゲーションメニューの重なり防止 */
+  .nav ul {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px 10px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .nav a {
+    font-size: 0.75rem !important;
+    padding: 3px 6px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* スマホでは補足テキストを隠して1行で収める場合 */
+  .nav-ja {
+    font-size: 0.65rem !important;
+    opacity: 0.8;
+  }
+
+  /* 4. おうち型フレームのスマホ画面フィッティング */
+  .hero-slider-section {
+    padding: 10px 0 !important;
+    margin: 10px 0 20px 0 !important;
+  }
+
+  .house-frame {
+    width: 92% !important;
+    height: 210px !important; /* スマホ画面でスクロール不要な高さ */
+    -webkit-clip-path: polygon(50% 0%, 100% 14%, 100% 100%, 0% 100%, 0% 14%) !important;
+    clip-path: polygon(50% 0%, 100% 14%, 100% 100%, 0% 100%, 0% 14%) !important;
+  }
+}
   </style>
 
   <section class="hero-slider-section">
