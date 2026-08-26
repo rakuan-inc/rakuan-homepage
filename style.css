@@ -779,3 +779,40 @@ a {
     width: 100% !important;
   }
 }
+/* ========================================
+   MOBILE DISPLAY FIX
+======================================== */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        color: #234414;
+        background: #ffffff;
+    }
+
+    main,
+    section,
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    li,
+    a,
+    span {
+        color: #234414;
+    }
+
+    /* JavaScript animation によって
+       消えてしまう場合の対策 */
+
+    .fade-in,
+    .fade-up,
+    .reveal,
+    .scroll-animation,
+    [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+}
