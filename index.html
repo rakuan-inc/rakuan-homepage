@@ -29,9 +29,29 @@
   <!-- キャッシュ更新用 CSS -->
   <link rel="stylesheet" href="style.css?v=33">
 </head>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof Swiper !== 'undefined') {
+        new Swiper('.main-swiper', {
+          loop: true,
+          speed: 1200, /* 滑らかな移動速度 */
+          autoplay: {
+            delay: 4500, /* 4.5秒ごとにゆっくり切り替え */
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+        });
+      }
+    });
+  </script>
+</body>
+</html>
 <body>
 
- <!-- 1. ヘッダー（元のレイアウトに復元） -->
+<!-- ヘッダー（元のレイアウト） -->
   <header class="header">
     <div class="header-inner">
       <h1 class="logo">
@@ -53,7 +73,7 @@
     </div>
   </header>
 
-  <!-- 2. おうち型スライドショー -->
+  <!-- おうち型スライドショー -->
   <section class="hero-slider-section">
     <div class="house-frame">
       <div class="swiper main-swiper">
@@ -66,7 +86,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- 3. ここから既存の ABOUT セクションにつながります -->
   <!-- ABOUT -->
