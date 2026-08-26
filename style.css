@@ -608,52 +608,54 @@ a {
   .email-link { font-size: 1.35rem; }
   .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
 /* ==========================================
-   スライドショー：1画面に収まるおうち型フレーム
+   おうち型スライドショー（標準・きれいな屋根比率）
    ========================================== */
-
 .hero-slider-section {
   width: 100%;
-  padding: 10px 0 30px 0;
+  padding: 20px 0 40px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* おうちの形の固定枠（画面内に収まるサイズ） */
+/* PC表示：自然なおうちの比率（幅600px / 高さ380px） */
 .house-frame {
   width: 90%;
-  max-width: 500px; /* 横幅をコンパクトに固定 */
-  height: 320px;    /* 高さを固定して1画面に収める */
+  max-width: 600px;
+  height: 380px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
   
-  /* おうち型（三角屋根）の切り抜き */
-  -webkit-clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
-  clip-path: polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
+  /* きれいな三角屋根の切り抜き */
+  -webkit-clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
 }
 
-/* 枠内のスライドショー要素を一括フィッティング */
 .house-frame .swiper,
 .house-frame .swiper-wrapper,
 .house-frame .swiper-slide {
-  width: 100% !important;
-  height: 100% !important;
+  width: 100%;
+  height: 100%;
 }
 
-.house-frame .swiper-slide img {
-  width: 100% !important;
-  height: 100% !important;
+.house-frame img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center top;
-  display: block;
 }
 
-/* スマホ用サイズ調整 */
+/* スマホ表示：画面幅に合わせた適正縮小 */
 @media (max-width: 768px) {
+  .hero-slider-section {
+    padding: 10px 0 20px 0;
+  }
   .house-frame {
-    height: 240px;
-    -webkit-clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
-    clip-path: polygon(50% 0%, 100% 16%, 100% 100%, 0% 100%, 0% 16%);
+    width: 92%;
+    height: 270px; /* スマホでも潰れない縦横比 */
+    -webkit-clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
+    clip-path: polygon(50% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
   }
 }
 /* ==========================================
