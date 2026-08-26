@@ -21,13 +21,36 @@
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="favicon.ico">
 </head>
+  <script>
+  window.addEventListener('load', function () {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.main-swiper', {
+        loop: true,
+        speed: 1000,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    }
+  });
+</script>
 <body>
-<!-- Swiper (スライドショー用ライブラリ) -->
+<!-- Swiper CSS (これがないと画像が消えます) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- CSS（v=16 に更新） -->
-  <link rel="stylesheet" href="style.css?v=16">
+  <!-- キャッシュ更新用 CSS (v=29) -->
+  <link rel="stylesheet" href="style.css?v=29">
+
+  <!-- CSS（v=17 に更新） -->
+  <link rel="stylesheet" href="style.css?v=17">
   <!-- ヘッダー -->
   <header id="header">
     <div class="header-inner">
@@ -56,15 +79,9 @@
   <div class="house-frame">
     <div class="swiper main-swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="images/hero1.jpg" alt="施工風景1">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/hero2.jpg" alt="施工風景2">
-        </div>
-        <div class="swiper-slide">
-          <img src="images/hero3.jpg" alt="施工風景3">
-        </div>
+        <div class="swiper-slide"><img src="images/hero1.jpg" alt="施工風景1"></div>
+        <div class="swiper-slide"><img src="images/hero2.jpg" alt="施工風景2"></div>
+        <div class="swiper-slide"><img src="images/hero3.jpg" alt="施工風景3"></div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
