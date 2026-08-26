@@ -881,3 +881,50 @@ body {
     visibility: visible !important;
   }
 }
+/* ==========================================
+   【緊急復元】一瞬見えて消える（JS非表示化）の完全解除
+   ========================================== */
+@media (max-width: 768px) {
+  /* 1. アニメーション（AOS等）による非表示（opacity: 0）を強制的に解除 */
+  *, *::before, *::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+  }
+
+  /* 2. 画面を真っ白に覆ってしまうローダーや背景膜を消去 */
+  #loading, .loading, .loader, #loader,
+  .overlay, .drawer-bg, .sp-menu-bg, .modal-bg {
+    display: none !important;
+  }
+
+  /* 3. ページのスクロールロックと背景表示を正常化 */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    position: relative !important;
+    background-color: #FAFAFA !important;
+  }
+
+  body {
+    padding-top: 80px !important;
+  }
+
+  /* 4. メインコンテンツとおうちスライダーの強制表示 */
+  main, section, div, .container,
+  .hero-slider-section, #about, #service, #works, #days, #recruit, #contact {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .house-frame,
+  .house-frame-outer,
+  .house-frame-wrapper,
+  .house-frame-content {
+    height: 260px !important;
+    display: block !important;
+    margin: 10px auto !important;
+  }
+}
