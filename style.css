@@ -1025,4 +1025,15 @@ a {
     opacity: 1 !important;
   }
 
+/* Restore Swiper Fade Effect */
+.hero-swiper .swiper-slide {
+  opacity: 0 !important;
+  pointer-events: none; /* Prevents hidden slides from blocking clicks */
+  transition: opacity 1s ease !important;
+}
+
+.hero-swiper .swiper-slide-active,
+.hero-swiper .swiper-slide-duplicate-active {
+  opacity: 1 !important;
+  pointer-events: auto; /* Allows clicks on the active slide */
 }
