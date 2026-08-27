@@ -12,18 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Swiper Initialization
+  // 2. Swiper Initialization (rewind mode fixes fade-loop freeze)
   const heroSwiper = new Swiper('.hero-swiper', {
-    loop: true,
-    speed: 1000,
+    rewind: true,             // Replaces 'loop: true' to prevent fade freezing
+    speed: 1200,              // Fade duration
     effect: 'fade',
     fadeEffect: {
       crossFade: true
     },
     autoplay: {
-      delay: 3000,
+      delay: 3000,            // Time per slide (3 seconds)
       disableOnInteraction: false,
-      waitForTransition: false
+      pauseOnMouseEnter: false
     },
     pagination: {
       el: '.swiper-pagination',
@@ -31,8 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     observer: true,
     observeParents: true,
-    resizeObserver: true,
   });
+
+  // Force autoplay start
+  if (heroSwiper.autoplay) {
+    heroSwiper.autoplay.start();
+  }
 
   // 3. Scroll fade-in animation
   const fadeElements = document.querySelectorAll('.fade-in');
