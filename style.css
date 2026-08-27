@@ -1025,15 +1025,82 @@ a {
     opacity: 1 !important;
   }
 
-/* Restore Swiper Fade Effect */
-.hero-swiper .swiper-slide {
-  opacity: 0 !important;
-  pointer-events: none; /* Prevents hidden slides from blocking clicks */
-  transition: opacity 1s ease !important;
+/* ==========================================
+   Hero Slider & House Frame (Cleaned Version)
+   ========================================== */
+.hero-slider-section {
+  width: 100%;
+  padding: 100px 0 40px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.hero-swiper .swiper-slide-active,
-.hero-swiper .swiper-slide-duplicate-active {
-  opacity: 1 !important;
-  pointer-events: auto; /* Allows clicks on the active slide */
+/* Outer Container with GPU acceleration for Mobile WebKit */
+.house-frame {
+  position: relative;
+  width: 90%;
+  max-width: 650px;
+  height: 420px;
+  margin: 0 auto;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/* Swiper Container with House Clip-Path */
+.hero-swiper {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+  overflow: hidden;
+  -webkit-clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+}
+
+.hero-swiper .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero-swiper .swiper-slide {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.hero-swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* SVG Outline Overlay */
+.house-frame-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Swiper Pagination Dots */
+.hero-swiper .swiper-pagination {
+  bottom: 15px !important;
+  z-index: 11;
+}
+
+/* Mobile responsive sizing */
+@media screen and (max-width: 768px) {
+  .hero-slider-section {
+    padding: 80px 0 20px 0;
+  }
+  .house-frame {
+    width: 92%;
+    height: 260px;
+  }
 }
