@@ -13,14 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Swiper Initialization (Single instance with observer & fade settings)
+  // 2. Swiper Initialization (Single Instance)
   const heroSwiper = new Swiper('.hero-swiper', {
     loop: true,
     speed: 1000,
     effect: 'fade',
-    fadeEffect: {
-      crossFade: true,
-    },
+    fadeEffect: { crossFade: true },
     autoplay: {
       delay: 3500,
       disableOnInteraction: false,
@@ -29,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
       el: '.swiper-pagination',
       clickable: true,
     },
-    observer: true,         // Recalculates slider when DOM changes
-    observeParents: true,   // Recalculates slider when container resizes
+    observer: true,
+    observeParents: true,
   });
 
   // 3. Scroll fade-in animation
