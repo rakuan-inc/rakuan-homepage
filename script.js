@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Header scroll effect
   const header = document.getElementById('header') || document.querySelector('.header');
-  
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 50) {
@@ -13,15 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Swiper Initialization (Single Instance)
+  // 2. Swiper Initialization
   const heroSwiper = new Swiper('.hero-swiper', {
     loop: true,
     speed: 1000,
     effect: 'fade',
-    fadeEffect: { crossFade: true },
+    fadeEffect: {
+      crossFade: true
+    },
     autoplay: {
-      delay: 3500,
+      delay: 3000,
       disableOnInteraction: false,
+      waitForTransition: false
     },
     pagination: {
       el: '.swiper-pagination',
@@ -29,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     observer: true,
     observeParents: true,
+    resizeObserver: true,
   });
 
   // 3. Scroll fade-in animation
   const fadeElements = document.querySelectorAll('.fade-in');
-
   if (fadeElements.length > 0) {
     const observerOptions = {
       root: null,
@@ -41,11 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
       threshold: 0.1
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, observerOptions);
