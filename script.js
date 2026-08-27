@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Header scroll effect (Safe selector)
+  // 1. Header scroll effect
   const header = document.getElementById('header') || document.querySelector('.header');
   
   if (header) {
@@ -13,13 +13,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Swiper Initialization (Safe timing inside DOMContentLoaded)
+  // 2. Swiper Initialization (Single instance with observer & fade settings)
   const heroSwiper = new Swiper('.hero-swiper', {
     loop: true,
     speed: 1000,
     effect: 'fade',
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     autoplay: {
       delay: 3500,
@@ -29,15 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
       el: '.swiper-pagination',
       clickable: true,
     },
+    observer: true,         // Recalculates slider when DOM changes
+    observeParents: true,   // Recalculates slider when container resizes
   });
 
-  // 3. Scroll fade-in animation (Mobile-friendly margin)
+  // 3. Scroll fade-in animation
   const fadeElements = document.querySelectorAll('.fade-in');
 
   if (fadeElements.length > 0) {
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -20px 0px', // Adjusted to trigger smoothly on mobile viewports
+      rootMargin: '0px 0px -20px 0px',
       threshold: 0.1
     };
 
