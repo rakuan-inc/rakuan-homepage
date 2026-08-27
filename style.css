@@ -158,7 +158,7 @@ a {
 }
 
 /* ==========================================
-   Hero Section & House Frame Slider
+   Hero Section & House Frame Slider (Mobile WebKit Fix)
    ========================================== */
 .hero-slider-section {
   width: 100%;
@@ -168,37 +168,46 @@ a {
   align-items: center;
 }
 
-/* Outer frame container */
+/* 1. clip-path moved here with GPU hardware acceleration */
 .house-frame {
   position: relative;
   width: 90%;
   max-width: 650px;
   height: 420px;
   margin: 0 auto;
-}
-
-/* Swiper slider clipped into an house shape */
-.hero-swiper {
-  width: 100%;
-  height: 100%;
+  overflow: hidden;
   -webkit-clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
   clip-path: polygon(50% 0%, 100% 22%, 100% 100%, 0% 100%, 0% 22%);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
-.hero-swiper .swiper-wrapper,
+/* 2. Swiper sits as a standard box inside .house-frame */
+.hero-swiper {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+}
+
+.hero-swiper .swiper-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
 .hero-swiper .swiper-slide {
   width: 100%;
   height: 100%;
 }
 
-.hero-swiper img {
+.hero-swiper .swiper-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  display: block;
 }
 
-/* SVG Outline Overlay */
+/* 3. SVG Overlay Frame */
 .house-frame-svg {
   position: absolute;
   top: 0;
@@ -209,13 +218,13 @@ a {
   z-index: 10;
 }
 
-/* Swiper Pagination Dots Position */
+/* Swiper Pagination Dots */
 .hero-swiper .swiper-pagination {
   bottom: 15px !important;
   z-index: 11;
 }
 
-/* Mobile Adjustment */
+/* Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   .hero-slider-section {
     padding: 80px 0 20px 0;
@@ -225,43 +234,6 @@ a {
     height: 260px;
   }
 }
-/* ==========================================
-   About Section
-   ========================================== */
-#about, .about-section {
-  padding: 80px 0;
-}
-
-.about-inner, .about-container, .about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.lead-text {
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 2.2;
-  margin-bottom: 24px;
-}
-
-.description {
-  color: var(--text-sub) !important;
-  font-size: 1.3rem;
-  line-height: 2.0;
-}
-
-.about-image, .about-img-wrap, .about-image-wrap, #about img, .about-section img {
-  max-height: 400px !important;
-  width: 100%;
-  object-fit: cover !important;
-  object-position: center top !important;
-  border-radius: 8px;
-}
-
 /* ==========================================
    Service Section
    ========================================== */
