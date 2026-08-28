@@ -992,6 +992,8 @@ a {
     opacity: 1 !important;
   }
 
+} /* ← 閉じ忘れていたモバイル用@media (max-width: 768px) を閉じる */
+
 /* ==========================================
    Hero Slider & House Frame (Cleaned Version)
    ========================================== */
