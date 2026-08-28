@@ -275,13 +275,18 @@
 
   
   
+  <!-- Swiper JS本体（CSSは<head>で読み込み済み） -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <!-- スライドショー起動スクリプト (</body>の直前に正確に配置) -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       if (typeof Swiper !== 'undefined') {
-        new Swiper('.main-swiper', {
+        new Swiper('.hero-swiper', {
           loop: true,
           speed: 1000,
+          effect: 'fade',
+          fadeEffect: { crossFade: true },
           autoplay: {
             delay: 3000,
             disableOnInteraction: false,
